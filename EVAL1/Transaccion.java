@@ -1,27 +1,22 @@
-import java.util.List;
-import java.time.Instant;
 import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 public class Transaccion {
     protected double monto;
-    protected Fecha fecha;
+    protected static class Fecha {
+        public static String getCurrentTimestamp() {
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+            return now.format(formatter);
+        }
+    }
     public double getMonto() {
         return monto;
     }
     public void setMonto(double monto) {
         this.monto = monto;
     }
-    public Transaccion(Fecha fecha, double monto) {
-        this.fecha = fecha;
+    public Transaccion(double monto) {
         this.monto = monto;
     }
-    public class Fecha {
-        public static String getTimestamp() {
-            Instant instant = Instant.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ISO_INSTANT;
-            return formatter.format(instant);
-        }
-    }
-    public static void main(String[] args) {
-        System.out.println(Fecha.getTimestamp());
-    }
 }
+
