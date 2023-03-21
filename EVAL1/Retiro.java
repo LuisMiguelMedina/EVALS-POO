@@ -16,16 +16,18 @@ public class Retiro extends Transaccion{
                 double fondoTotal = saldo-monto;
                 String fondoTotalString = Double.toString(fondoTotal);
                 crudRegistros.actualizarCelda(i, 2, fondoTotalString);
-                String timestamp = Transaccion.Fecha.getCurrentTimestamp();
-                System.out.println("Se retiro "+ monto + "$ el " + timestamp + " de la cuenta " + idCuenta);
-                CRUDRegistros crudRegistrosEscritura = new CRUDRegistros("EVAL1/CSVArchivos/DatosTransferencias.csv");
-                String[] nuevoRegistro = {idCuenta,"-"+monto,timestamp};
-                crudRegistrosEscritura.escribirRegistro(nuevoRegistro);
+                registrarRetiro(idCuenta,monto);
             } else {
                 System.out.println("Fondos insuficientes");
             }
             i++;
         }
+    }
+    public static void registrarRetiro(String idCuenta, double monto) throws IOException {
+        System.out.println("Se retiro "+ monto + "$ el " + Transaccion.Fecha.getCurrentTimestamp() + " de la cuenta " + idCuenta);
+        CRUDRegistros crudRegistrosEscritura = new CRUDRegistros("EVAL1/CSVArchivos/DatosTransferencias.csv");
+        String[] nuevoRegistro = {idCuenta,"-"+monto,Transaccion.Fecha.getCurrentTimestamp()};
+        crudRegistrosEscritura.escribirRegistro(nuevoRegistro);
     }
 }
 

@@ -1,11 +1,11 @@
 import java.io.*;
 import java.util.*;
 public class CRUDRegistros {
-    private String archivo;
+    private static String archivo;
     public CRUDRegistros(String archivo) {
         this.archivo = archivo;
     }
-    public List<String[]> leerRegistros() throws IOException {
+    public static List<String[]> leerRegistros() throws IOException {
         List<String[]> registros = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(archivo));
         String linea;
@@ -32,7 +32,7 @@ public class CRUDRegistros {
         registros.remove(numeroFila);
         escribirRegistros(registros);
     }
-    private void escribirRegistros(List<String[]> registros) throws IOException {
+    private static void escribirRegistros(List<String[]> registros) throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter(archivo));
         for (String[] registro : registros) {
             bw.write(String.join(",", registro));
@@ -44,7 +44,7 @@ public class CRUDRegistros {
         List<String[]> registros = leerRegistros();
         return registros.get(numeroFila)[numeroColumna];
     }
-    public void actualizarCelda(int numeroFila, int numeroColumna, String valor) throws IOException {
+    public static void actualizarCelda(int numeroFila, int numeroColumna, String valor) throws IOException {
         List<String[]> registros = leerRegistros();
         registros.get(numeroFila)[numeroColumna] = valor;
         escribirRegistros(registros);

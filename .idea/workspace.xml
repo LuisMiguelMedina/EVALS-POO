@@ -5,47 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac70a1f3-690b-4114-a1ff-695652da9a3c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EVAL1/CSVArchivos/DatosClientes.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EVAL1/CSVArchivos/DatosCuentas.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EVAL1/CSVArchivos/DatosDepositos.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EVAL1/CSVArchivos/DatosRetiros.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EVAL1/Cliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EVAL1/Cuenta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EVAL1/Deposito.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EVAL1/EscribirRegistro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EVAL1/LectorArchivos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EVAL1/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EVAL1/Retiro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EVAL1/Transaccion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/EVALS-POO.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/EVAL1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/out/production/EVAL1/CSVArchivos/DatosClientes.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/out/production/EVAL1/CSVArchivos/DatosCuentas.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/out/production/EVAL1/CSVArchivos/DatosDepositos.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/out/production/EVAL1/CSVArchivos/DatosRetiros.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/out/production/EVAL1/Cliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/out/production/EVAL1/Cuenta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/out/production/EVAL1/Deposito.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/out/production/EVAL1/EscribirRegistro.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/out/production/EVAL1/LectorArchivos.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/out/production/EVAL1/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/out/production/EVAL1/Retiro.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/out/production/EVAL1/Transaccion$Fecha.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/out/production/EVAL1/Transaccion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/src/CSVArchivos/DatosClientes.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/src/CSVArchivos/DatosCuentas.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/src/CSVArchivos/DatosDepositos.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/src/CSVArchivos/DatosRetiros.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/src/Cliente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/src/Cuenta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/src/Deposito.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/src/EscribirRegistro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/src/LectorArchivos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/src/Retiro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/src/Transaccion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EVAL1/CRUDRegistros.java" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/CRUDRegistros.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EVAL1/CSVArchivos/DatosCuentas.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/CSVArchivos/DatosCuentas.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EVAL1/CSVArchivos/DatosTransferencias.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/CSVArchivos/DatosTransferencias.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EVAL1/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EVAL1/Cuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/Cuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EVAL1/Deposito.java" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/Deposito.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EVAL1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EVAL1/Retiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/Retiro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +47,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.general",
+    "settings.editor.selected.configurable": "inlay.hints",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -92,6 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1679385886915</updated>
       <workItem from="1679385888203" duration="16884000" />
+      <workItem from="1679424642136" duration="11023000" />
     </task>
     <servers />
   </component>

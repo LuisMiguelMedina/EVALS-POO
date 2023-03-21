@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 public class Deposito extends Transaccion {
     public String idCuentaDestino;
@@ -6,26 +7,45 @@ public class Deposito extends Transaccion {
         super(monto);
         this.idCuentaDestino = idCuentaDestino;
     }
-    public static void depositarMonto(String idCuenta, double monto) throws IOException {
+    public static void depositarMonto(String idCuenta,String idCuentaDestino, double monto) throws IOException {
         CRUDRegistros crudRegistros = new CRUDRegistros("EVAL1/CSVArchivos/DatosCuentas.csv");
         List<String[]> registros = crudRegistros.leerRegistros();
+        List<String> registroDeposito = new ArrayList<String>();
         int i = 0;
         for (String[] registro : registros) {
-            String valorCelda = crudRegistros.obtenerCelda(i, 2);
-            double saldo = Double.parseDouble(valorCelda);
-            if (monto < saldo) {
-                double fondoTotal = saldo-monto;
-                String fondoTotalString = Double.toString(fondoTotal);
-                crudRegistros.actualizarCelda(i, 2, fondoTotalString);
-                String timestamp = Transaccion.Fecha.getCurrentTimestamp();
-                System.out.println("Se retiro "+ monto + "$ el " + timestamp + " de la cuenta " + idCuenta);
-                CRUDRegistros crudRegistrosEscritura = new CRUDRegistros("EVAL1/CSVArchivos/DatosTransferencias.csv");
-                String[] nuevoRegistro = {idCuenta,"-"+monto,timestamp};
-                crudRegistrosEscritura.escribirRegistro(nuevoRegistro);
-            } else {
-                System.out.println("Fondos insuficientes");
+            String valorCelda = crudRegistros.obtenerCelda(i, 1);
+            registroDeposito.add(valorCelda);
+            boolean existeCuentaDestino = Cuenta.validarCuenta(idCuentaDestino, registroDeposito);
+            boolean existeCuentaLocal = Cuenta.validarCuenta(idCuenta, registroDeposito);
+            String valorSaldo = crudRegistros.obtenerCelda(i, 2);
+            double saldo = Double.parseDouble(valorSaldo);
+            if (existeCuentaDestino){
+                if (existeCuentaLocal){
+                registrarDeposito(idCuenta, saldo,monto, idCuentaDestino, i);
+                break;
+                }
             }
             i++;
+        }
+    }
+    public static void registrarDeposito(String idCuenta, double saldo, double monto, String idCuentaDestino, int i) throws IOException {
+        CRUDRegistros crudRegistrosEscritura = new CRUDRegistros("EVAL1/CSVArchivos/DatosCuentas.csv");
+        CRUDRegistros crudRegistrosLectura = new CRUDRegistros("EVAL1/CSVArchivos/DatosTransferencias.csv");
+
+        if (monto < saldo) {
+            //Crear
+            String montoString = Double.toString(monto);
+            String[] nuevoRegistro = {idCuentaDestino, "+"+montoString, Transaccion.Fecha.getCurrentTimestamp()};
+            System.out.println("La cuenta " + idCuentaDestino + " Recibio +" + monto + "$ el " + Transaccion.Fecha.getCurrentTimestamp());
+            crudRegistrosLectura.escribirRegistro(nuevoRegistro);
+
+            //Actualizar
+            List<String[]> registros = crudRegistrosEscritura.leerRegistros();
+            double fondoTotal = saldo-monto;
+            String fondoTotalString = Double.toString(fondoTotal);
+            crudRegistrosEscritura.actualizarCelda(i, 2, fondoTotalString);
+        } else {
+            System.out.println("Fondos insuficientes");
         }
     }
 }
