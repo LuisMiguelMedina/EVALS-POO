@@ -2,11 +2,11 @@ import java.io.IOException;
 import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
-        Deposito.depositarMonto("1800341002","1800341001",800.0);
+        consultarCliente("1855504");
     }
     public static void CRUDRegistroClientes() throws IOException {
         CRUDRegistros crudRegistros = new CRUDRegistros("EVAL1/CSVArchivos/DatosClientes.csv");
-        List<String[]> registros = crudRegistros.leerRegistros();
+        List<String[]> registros = CRUDRegistros.leerRegistros();
         for (String[] registro : registros) {
             for (String valor : registro) {
                 System.out.print(valor + " ");
@@ -30,7 +30,7 @@ public class Main {
     }
     public static void consultarCuentasCliente(String idClient) throws IOException {
         CRUDRegistros crudRegistros = new CRUDRegistros("EVAL1/CSVArchivos/DatosCuentas.csv");
-        List<String[]> registros = crudRegistros.leerRegistros();
+        List<String[]> registros = CRUDRegistros.leerRegistros();
         List<String> registroCuentas = new ArrayList<String>();
         int i = 0;
         for (String[] registro : registros) {
@@ -46,7 +46,7 @@ public class Main {
     }
     public static void consultarCliente(String idCliente) throws IOException {
         CRUDRegistros crudRegistros = new CRUDRegistros("EVAL1/CSVArchivos/DatosClientes.csv");
-        List<String[]> registros = crudRegistros.leerRegistros();
+        List<String[]> registros = CRUDRegistros.leerRegistros();
         List<String> registrosClientes = new ArrayList<String>();
         int i = 0;
         for (String[] registro : registros) {
@@ -64,7 +64,7 @@ public class Main {
     }
     public static void consultarCuenta(String idCuenta) throws IOException {
         CRUDRegistros crudRegistros = new CRUDRegistros("EVAL1/CSVArchivos/DatosCuentas.csv");
-        List<String[]> registros = crudRegistros.leerRegistros();
+        List<String[]> registros = CRUDRegistros.leerRegistros();
         List<String> consultaCuenta = new ArrayList<String>();
         int i = 0;
         for (String[] registro : registros) {

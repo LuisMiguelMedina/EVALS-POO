@@ -32,7 +32,7 @@ public class CRUDRegistros {
         registros.remove(numeroFila);
         escribirRegistros(registros);
     }
-    private static void escribirRegistros(List<String[]> registros) throws IOException {
+    private void escribirRegistros(List<String[]> registros) throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter(archivo));
         for (String[] registro : registros) {
             bw.write(String.join(",", registro));
@@ -44,7 +44,7 @@ public class CRUDRegistros {
         List<String[]> registros = leerRegistros();
         return registros.get(numeroFila)[numeroColumna];
     }
-    public static void actualizarCelda(int numeroFila, int numeroColumna, String valor) throws IOException {
+    public void actualizarCelda(int numeroFila, int numeroColumna, String valor) throws IOException {
         List<String[]> registros = leerRegistros();
         registros.get(numeroFila)[numeroColumna] = valor;
         escribirRegistros(registros);

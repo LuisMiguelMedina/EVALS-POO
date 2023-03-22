@@ -2,9 +2,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 public class Cuenta {
-    private String idCliente;
-    private String idCuenta;
-    private double saldo;
+    private final String idCliente;
+    private final String idCuenta;
+    private final double saldo;
     public Cuenta(String idCliente, String idCuenta, double saldo) {
         this.idCliente = idCliente;
         this.idCuenta = idCuenta;
@@ -18,9 +18,9 @@ public class Cuenta {
         }
         return false;
     }
-    public static List<String> consultarCuentasCliente(String idClient) throws IOException {
+    public static List<String> cuentasCliente(String idClient) throws IOException {
         CRUDRegistros crudRegistros = new CRUDRegistros("EVAL1/CSVArchivos/DatosCuentas.csv");
-        List<String[]> registros = crudRegistros.leerRegistros();
+        List<String[]> registros = CRUDRegistros.leerRegistros();
         List<String> registroCuentas = new ArrayList<String>();
         List<String> cuentasCliente = new ArrayList<String>();
         int i = 0;

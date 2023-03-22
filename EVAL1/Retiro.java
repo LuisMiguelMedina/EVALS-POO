@@ -7,7 +7,7 @@ public class Retiro extends Transaccion{
     }
     public static void retirarMonto(String idCuenta, double monto) throws IOException {
         CRUDRegistros crudRegistros = new CRUDRegistros("EVAL1/CSVArchivos/DatosCuentas.csv");
-        List<String[]> registros = crudRegistros.leerRegistros();
+        List<String[]> registros = CRUDRegistros.leerRegistros();
         int i = 0;
         for (String[] registro : registros) {
             String valorCelda = crudRegistros.obtenerCelda(i, 2);
@@ -17,6 +17,7 @@ public class Retiro extends Transaccion{
                 String fondoTotalString = Double.toString(fondoTotal);
                 crudRegistros.actualizarCelda(i, 2, fondoTotalString);
                 registrarRetiro(idCuenta,monto);
+                break;
             } else {
                 System.out.println("Fondos insuficientes");
             }

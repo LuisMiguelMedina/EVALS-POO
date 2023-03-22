@@ -21,7 +21,6 @@ class Cliente {
         }
         return false;
     }
-
     @Override
     public String toString() {
         return "idCliente=" + idCliente + ", nombre='" + nombre + '\'' + ", telefono='" + telefono + '\'' + ", correo='" + correo + '\'';
