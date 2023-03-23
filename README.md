@@ -20,3 +20,4 @@ The system must have only one type of account, there will be only 2 transactions
 
 ## Class Diagram:
 ![EVAL1-DiagramClass](EVAL1/Documentation/Eval1.png)
+[Shame on you, this is ugly]
