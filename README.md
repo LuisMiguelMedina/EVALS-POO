@@ -23,4 +23,4 @@ Additionally, we may also want to create a "Connection" and "Query" class, which
 
 ## Class Diagram:
 ![EVAL1-DiagramClass](EVAL1/Documentation/Eval1.png)
-[Shame on you, this is ugly]
+[Im bad at this, dont worry, you´ll probably make it better]
