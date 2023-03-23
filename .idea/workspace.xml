@@ -6,22 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ac70a1f3-690b-4114-a1ff-695652da9a3c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/CRUDRegistros.java" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/CRUDRegistros.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EVAL1/CSVArchivos/DatosCuentas.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/CSVArchivos/DatosCuentas.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EVAL1/CSVArchivos/DatosTransferencias.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/CSVArchivos/DatosTransferencias.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/Cuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/Cuenta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EVAL1/Deposito.java" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/Deposito.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EVAL1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EVAL1/Retiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/EVAL1/Retiro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EVALS-POO/CRUDRegistros.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EVALS-POO/CRUDRegistros.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EVALS-POO/CSVArchivos/DatosCuentas.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EVALS-POO/CSVArchivos/DatosCuentas.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EVALS-POO/CSVArchivos/DatosTransferencias.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EVALS-POO/CSVArchivos/DatosTransferencias.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EVALS-POO/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EVALS-POO/Cliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EVALS-POO/Cuenta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EVALS-POO/Cuenta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EVALS-POO/Deposito.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EVALS-POO/Deposito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EVALS-POO/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EVALS-POO/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EVALS-POO/Retiro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EVALS-POO/Retiro.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +61,8 @@
       <workItem from="1679511315052" duration="87000" />
       <workItem from="1679512075949" duration="231000" />
       <workItem from="1679516975130" duration="14000" />
+      <workItem from="1679580729214" duration="39000" />
+      <workItem from="1679584811844" duration="1485000" />
     </task>
     <servers />
   </component>

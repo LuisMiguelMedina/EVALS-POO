@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
-        consultarCliente("1855504");
+        Deposito.depositarMonto("1800341001","1800341002",100);
     }
     public static void CRUDRegistroClientes() throws IOException {
         CRUDRegistros crudRegistros = new CRUDRegistros("EVAL1/CSVArchivos/DatosClientes.csv");
