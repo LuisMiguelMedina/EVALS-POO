@@ -1,8 +1,11 @@
-# EVAL-1
+# EVAL-2
 
 # Client:
-Make a bank system.
-The system must have only one type of account, there will be only 2 transactions, and you must use information in text files.
+Your system is weird, i like it! [True history]
+<br>
+"Models" and "Controllers" need to be created in order to implement the MVC architecture properly. Let's start by creating them.
+<br>
+Additionally, we may also want to create a "Connection" and "Query" class, which would make it easier for the architecture to swap the CVS package with a DB."
 
 ## Requirements:
  |Non-Functional|Functional|
