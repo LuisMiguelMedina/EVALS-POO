@@ -46,7 +46,6 @@ public class Deposito extends Transaccion {
             String[] retiroRegistro = {idCuenta, "-" + fondoTotalString, Transaccion.Fecha.getCurrentTimestamp()};
             System.out.println("La cuenta " + idCuenta + " retiro -" + montoString + "$ el " + Transaccion.Fecha.getCurrentTimestamp());
             crudRegistrosLectura.escribirRegistro(retiroRegistro);
-
         } else {
             System.out.println("Fondos insuficientes");
         }
