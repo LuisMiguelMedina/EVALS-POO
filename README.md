@@ -15,7 +15,7 @@ The system must have only one type of account, there will be only 2 transactions
  - Cannot use frameworks [java vanilla]
  
  ## Notes:
-- Not MVC model needed yet
+- Not MVC needed yet, only models
 - *CLASS DIAGRAM ALWAYS FIRST!*
 
 ## Class Diagram:
