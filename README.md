@@ -1,7 +1,7 @@
 # EVAL-2
 
 # Client:
-Your system is weird, i like it! [True history]
+Your system is weird, i like it!
 <br>
 "Models" and "Controllers" need to be created in order to implement the MVC architecture properly. Let's start by creating them.
 <br>
@@ -10,16 +10,16 @@ Additionally, we may also want to create a "Connection" and "Query" class, which
 ## Requirements:
  |Non-Functional|Functional|
  |--------------|----------|
- |NF01: Use CVS files to get information from text|F01: Only 2 transaccions [deposit and withdrawal]|
- |NF02: The system should be able to easily migrate from cvs files to DB |F02: A CRUD Query class|
+ |NF01: Make and organize Models and Controllers packages |F01: Make a Query class |
+ |NF02: Make an MVC architecture using the csv as DB |F02: Make a Connection class|
  
  ## Limitations:
- - Cannot use a DB
+ - Cannot use a DB [Still cannot use it :(]
  - Cannot use frameworks [java vanilla]
  
  ## Notes:
-- Not MVC needed yet, only models
-- *CLASS DIAGRAM ALWAYS FIRST!*
+- Remember model and controller definitions, if you dont know ask your nearby IT professor, or chatGTP.
+- Your code at this point may be a bit messy, which is understandable. You may need to clean it up to make it more organized and readable
 
 ## Class Diagram:
 ![EVAL1-DiagramClass](EVAL1/Documentation/Eval1.png)
