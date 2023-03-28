@@ -18,8 +18,9 @@ Additionally, we may also want to create a "Connection" and "Query" class, which
  - Cannot use frameworks [java vanilla]
  
  ## Notes:
-- Remember model and controller definitions, if you dont know ask your nearby IT professor, or chatGTP.
+- Remember model and controller definitions, if you dont know ask your nearby IT professor.
 - Your code at this point may be a bit messy, which is understandable. You may need to clean it up to make it more organized and readable
+- By the way, it will be a pain, but if you are asked to make queries with the CSV files... I hope you have someone to pray to
 
 ## Class Diagram:
 ![EVAL1-DiagramClass](EVAL1/Documentation/Eval1.png)
