@@ -3,14 +3,14 @@
 # Client:
 Your system is weird, i like it!
 <br>
-"Models" and "Controllers" need to be created in order to implement the MVC architecture properly. Let's start by creating them.
+"Modelo" and "Controllers" need to be created in order to implement the MVC architecture properly. Let's start by creating them.
 <br>
 Additionally, we may also want to create a "Connection" and "Query" class, which would make it easier for the architecture to swap the CVS package with a DB."
 
 ## Requirements:
  |Non-Functional|Functional|
  |--------------|----------|
- |NF01: Make and organize Models and Controllers packages |F01: Make a Query class |
+ |NF01: Make and organize Modelo and Controllers packages |F01: Make a Query class |
  |NF02: Make an MVC architecture using the csv as DB |F02: Make a Connection class|
  
  ## Limitations:
