@@ -1,5 +1,5 @@
 package src.Model;
-import java.util.List;
+
 public class Cuenta {
     private final String idCliente;
     private final String idCuenta;

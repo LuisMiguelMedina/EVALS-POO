@@ -2,7 +2,7 @@ package src.DAO;
 
 import java.io.File;
 public class Conexion {
-    private static final String RUTA_ARCHIVOS = "EVAL1/CSVArchivos";
+    private static final String RUTA_ARCHIVOS = "EVAL1/src/CSVArchivos";
     public boolean validarConexion() {
         File carpetaArchivos = new File(RUTA_ARCHIVOS);
         if (carpetaArchivos.exists() && carpetaArchivos.isDirectory()) {

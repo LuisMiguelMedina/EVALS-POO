@@ -1,5 +1,6 @@
 package src;
 
+import src.Controller.CuentaController;
 import src.DAO.Conexion;
 
 import src.Controller.ClienteController;
@@ -16,35 +17,35 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-
         Conexion conexion = new Conexion();
-        Query query = new Query(conexion);
         ClienteController clienteController = new ClienteController();
+        CuentaController cuentaController = new CuentaController();
 
         // Creamos un cliente
-        Cliente cliente1 = new Cliente("18003410001","Juan Perez", "12345678","jperez@mail.com");
+        Cliente cliente1 = new Cliente("C003","Juan Perez", "+1-555-123-4567","jperez@mail.com");
 
         // Validamos los datos del cliente
         clienteController.validarDatosCliente(cliente1);
 
         // Creamos un nuevo registro de cliente
-        ClienteController.crearCliente(cliente1, conexion);
+        clienteController.crearCliente(cliente1, conexion);
 
         // Obtenemos los registros de clientes
-        ClienteController.obtenerClientes(conexion);
+        clienteController.obtenerClientes(cliente1,conexion);
 
         // Creamos una cuenta para el cliente
-        Cuenta cuenta1 = new Cuenta(cliente1.getIdCliente(), "01", 500.0);
+        Cuenta cuenta1 = new Cuenta(cliente1.getIdCliente(), "CC02", 500.0);
 
         // Validamos los datos de la cuenta
-        CuentaController.validarDatosCuenta(cuenta1);
+        cuentaController.validarDatosCuenta(cuenta1, conexion);
 
         // Creamos un nuevo registro de cuenta
-        CuentaController.crearCuenta(cuenta1, conexion);
+        cuentaController.crearCuenta(cuenta1, conexion);
 
         // Obtenemos los registros de cuentas
-        CuentaController.obtenerCuentas(conexion);
+        cuentaController.obtenerCuentas(cuenta1, conexion);
 
+        /*
         // Realizamos un depósito en la cuenta
         Deposito deposito1 = new Deposito(200.0, cuenta1.getIdCuenta());
 
@@ -73,10 +74,11 @@ public class Main {
         CuentaController.actualizarSaldoCuenta(cuenta1.getIdCuenta(), 650.0, conexion);
 
         // Eliminamos la cuenta
-        CuentaController.eliminarCuenta(cuenta1, conexion);
+        cuentaController.eliminarCuenta(cuenta1, conexion);
 
         // Eliminamos el cliente
-        ClienteController.eliminarCliente(cliente1, conexion);
+        clienteController.eliminarCliente(cliente1, conexion);
+        */
     }
 }
 
