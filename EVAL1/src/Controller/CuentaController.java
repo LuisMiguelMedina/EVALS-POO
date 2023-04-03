@@ -10,8 +10,7 @@ import java.util.List;
 
 public class CuentaController {
     ClienteController clienteController = new ClienteController();
-    public boolean validarDatosCuenta(Cuenta cuenta, Conexion conexion) throws IOException {
-    Query query = new Query(conexion);
+    public boolean validarDatosCuenta(Cuenta cuenta) throws IOException {
         if (cuenta.getIdCliente().isEmpty() || cuenta.getIdCuenta().isEmpty() || Double.valueOf(cuenta.getSaldo()).equals(0.0))  {
             return false;
         }
@@ -26,30 +25,15 @@ public class CuentaController {
         }
         return true;
     }
-    public List<Cuenta> obtenerCuentas(Cuenta cuenta, Conexion conexion) throws IOException {
-        Query query = new Query(conexion);
-        List<String[]> registrosCuentas = query.obtenerRegistrosCuentas();
-        List<Cuenta> cuentas = new ArrayList<>();
-
-        for (String[] registro : registrosCuentas) {
-            if (cuentas == null || registro[0].equals(cuenta.getIdCliente())) {
-                double saldo = Double.parseDouble(registro[2]);
-                Cuenta c = new Cuenta(registro[0], registro[1], saldo);
-                cuentas.add(c);
-            }
-        }
-        return cuentas;
-    }
-
     public void crearCuenta(Cuenta cuenta, Conexion conexion) throws IOException {
         Query query = new Query(conexion);
         String saldoCuenta = String.valueOf(cuenta.getSaldo());
         String[] datosCuentas = {
                 cuenta.getIdCliente(),
-                String.format("CC%02d", Integer.parseInt(query.obtenerIdCuentaPorCliente(cuenta.getIdCliente())) + 1),
+                cuenta.getIdCuenta(),
                 saldoCuenta
         };
-        if (validarDatosCuenta(cuenta, conexion)) {
+        if (validarDatosCuenta(cuenta)) {
             query.escribirRegistroCuenta(datosCuentas);
             System.out.println("Cuenta creada exitosamente.");
         }
@@ -57,20 +41,17 @@ public class CuentaController {
             System.out.println("Datos de cuenta no válidos. No se ha creado la cuenta.");
         }
     }
-
-    public void eliminarCliente(Cliente cliente, Conexion conexion) throws IOException{
+    public void eliminarCuenta(Cuenta cuenta, Conexion conexion) throws IOException {
         Query query = new Query(conexion);
-        List<String[]> registrosClientes = query.obtenerRegistrosClientes();
+        List<String[]> registrosCuentas = query.obtenerRegistrosCuentas();
         int i = 0;
-
-        for (String[] registro : registrosClientes) {
-            if (registro[0].equals(cliente.getIdCliente())) {
-                query.eliminarRegistroCliente(i);
-                System.out.println("Cliente eliminado exitosamente.");
+        for (String[] registro : registrosCuentas) {
+            if (registro[0].equals(cuenta.getIdCliente()) && registro[1].equals(cuenta.getIdCuenta())) {
+                query.eliminarRegistroCuenta(i);
+                System.out.println("Cuenta eliminada exitosamente.");
                 return;
             }
             i++;
         }
-        System.out.println("No se encontró el cliente con ID " + cliente.getIdCliente() + ".");
     }
 }

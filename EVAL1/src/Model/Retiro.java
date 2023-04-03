@@ -43,7 +43,7 @@ public class Retiro extends Transaccion {
     }
     public void registrarRetiro(String idCuenta) throws IOException {
         Query query = new Query(new Conexion());
-        String[] registroTransferencia = {idCuenta, String.valueOf(monto), Transaccion.Fecha.getCurrentTimestamp()};
-        query.escribirRegistroTransferencia(registroTransferencia);
+        String[] registroTransaccion = {idCuenta, String.valueOf(monto), Transaccion.Fecha.getCurrentTimestamp()};
+        query.escribirRegistroTransaccion(registroTransaccion);
     }
 }

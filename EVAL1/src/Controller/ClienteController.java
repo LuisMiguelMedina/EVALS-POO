@@ -24,18 +24,31 @@ public class ClienteController {
             }
             return true;
     }
-    public List<Cliente> obtenerClientes(Cliente cliente, Conexion conexion) throws IOException {
+    public void obtenerCuentasCliente(Cliente cliente, Conexion conexion) throws IOException {
         Query query = new Query(conexion);
-        List<String[]> registrosClientes = query.obtenerRegistrosClientes();
-        List<Cliente> clientes = new ArrayList<>();
+        String idCliente = cliente.getIdCliente();
+        String[] registroCliente = query.obtenerRegistroClientePorId(idCliente);
 
-        for (String[] registro : registrosClientes) {
-            if (cliente == null || registro[0].equals(cliente.getIdCliente())) {
-                Cliente c = new Cliente(registro[0], registro[1], registro[2], registro[3]);
-                clientes.add(c);
+        if (registroCliente != null) {
+            List<String[]> registrosCuentas = query.obtenerRegistrosCuentas();
+            List<Object> cuentas = new ArrayList<>();
+
+            for (String[] registro : registrosCuentas) {
+                if (registro[0].equals(idCliente)) {
+                    cuentas.add(registro[1]);
+                }
             }
+            if (!cuentas.isEmpty()) {
+                System.out.println("Las cuentas del cliente " + cliente.getNombre() + " son:");
+                for (Object cuenta : cuentas) {
+                    System.out.println(cuenta);
+                }
+            }
+            else
+                System.out.println("El cliente " + cliente.getNombre() + " no tiene cuentas.");
         }
-        return clientes;
+        else
+            System.out.println("No se encontró el cliente con ID " + idCliente);
     }
 
     public void crearCliente(Cliente cliente, Conexion conexion) throws IOException {
@@ -54,12 +67,10 @@ public class ClienteController {
             System.out.println("Datos de cliente no válidos. No se ha creado el cliente.");
         }
     }
-
-    public void eliminarCliente(Cliente cliente, Conexion conexion) throws IOException{
+    public void eliminarCliente(Cliente cliente, Conexion conexion) throws IOException {
         Query query = new Query(conexion);
         List<String[]> registrosClientes = query.obtenerRegistrosClientes();
         int i = 0;
-
         for (String[] registro : registrosClientes) {
             if (registro[0].equals(cliente.getIdCliente())) {
                 query.eliminarRegistroCliente(i);
@@ -68,7 +79,6 @@ public class ClienteController {
             }
             i++;
         }
-        System.out.println("No se encontró el cliente con ID " + cliente.getIdCliente() + ".");
     }
 }
 

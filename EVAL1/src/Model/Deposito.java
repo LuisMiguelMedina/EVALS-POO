@@ -45,13 +45,13 @@ public class Deposito extends Transaccion {
         String montoString = Double.toString(monto);
         String[] depositoRegistro = {idCuentaDestino, "+" + montoString, Transaccion.Fecha.getCurrentTimestamp()};
         System.out.println("La cuenta " + idCuentaDestino + " Recibio +" + monto + "$ el " + Transaccion.Fecha.getCurrentTimestamp());
-        query.escribirRegistroTransferencia(depositoRegistro);
+        query.escribirRegistroTransaccion(depositoRegistro);
 
         //Actualizar DatosCuentas para deposito
         String fondoTotalString = Double.toString(fondoTotal);
         query.actualizarSaldoCuenta(idCuenta, fondoTotal);
         String[] retiroRegistro = {idCuenta, "-" + fondoTotalString, Transaccion.Fecha.getCurrentTimestamp()};
         System.out.println("La cuenta " + idCuenta + " retiro -" + montoString + "$ el " + Transaccion.Fecha.getCurrentTimestamp());
-        query.escribirRegistroTransferencia(retiroRegistro);
+        query.escribirRegistroTransaccion(retiroRegistro);
     }
 }

@@ -30,20 +30,17 @@ public class Main {
         // Creamos un nuevo registro de cliente
         clienteController.crearCliente(cliente1, conexion);
 
-        // Obtenemos los registros de clientes
-        clienteController.obtenerClientes(cliente1,conexion);
+        // Obtenemos los registros de cuentas
+        clienteController.obtenerCuentasCliente(cliente1, conexion);
 
         // Creamos una cuenta para el cliente
-        Cuenta cuenta1 = new Cuenta(cliente1.getIdCliente(), "CC02", 500.0);
+        Cuenta cuenta1 = new Cuenta(cliente1.getIdCliente(), "CC01", 500.0);
 
         // Validamos los datos de la cuenta
-        cuentaController.validarDatosCuenta(cuenta1, conexion);
+        cuentaController.validarDatosCuenta(cuenta1);
 
         // Creamos un nuevo registro de cuenta
         cuentaController.crearCuenta(cuenta1, conexion);
-
-        // Obtenemos los registros de cuentas
-        cuentaController.obtenerCuentas(cuenta1, conexion);
 
         /*
         // Realizamos un depósito en la cuenta
@@ -72,13 +69,16 @@ public class Main {
 
         // Actualizamos el saldo de la cuenta
         CuentaController.actualizarSaldoCuenta(cuenta1.getIdCuenta(), 650.0, conexion);
+        */
+
+        // Obtenemos los registros de cuentas
+        clienteController.obtenerCuentasCliente(cliente1, conexion);
 
         // Eliminamos la cuenta
         cuentaController.eliminarCuenta(cuenta1, conexion);
 
-        // Eliminamos el cliente
+        //Eliminamos cliente
         clienteController.eliminarCliente(cliente1, conexion);
-        */
     }
 }
 
