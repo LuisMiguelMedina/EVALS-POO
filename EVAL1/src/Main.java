@@ -1,6 +1,8 @@
 package src;
 
+import src.Controller.ConexionController;
 import src.Controller.CuentaController;
+import src.Controller.TransaccionController;
 import src.DAO.Conexion;
 
 import src.Controller.ClienteController;
@@ -17,9 +19,13 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Conexion conexion = new Conexion();
         ClienteController clienteController = new ClienteController();
         CuentaController cuentaController = new CuentaController();
+        TransaccionController transaccionController = new TransaccionController();
+        ConexionController conexionController = new ConexionController();
+
+        //Se valida la conexion al DB
+        conexionController.validarConexion();
 
         // Creamos un cliente
         Cliente cliente1 = new Cliente("C003","Juan Perez", "+1-555-123-4567","jperez@mail.com");
@@ -28,30 +34,37 @@ public class Main {
         clienteController.validarDatosCliente(cliente1);
 
         // Creamos un nuevo registro de cliente
-        clienteController.crearCliente(cliente1, conexion);
+        clienteController.crearCliente(cliente1);
 
         // Obtenemos los registros de cuentas
-        clienteController.obtenerCuentasCliente(cliente1, conexion);
+        clienteController.obtenerCuentasCliente(cliente1);
 
         // Creamos una cuenta para el cliente
-        Cuenta cuenta1 = new Cuenta(cliente1.getIdCliente(), "CC01", 500.0);
+        Cuenta cuenta1 = new Cuenta(cliente1.getIdCliente(), "CC01", 500.0, "00301");
 
         // Validamos los datos de la cuenta
         cuentaController.validarDatosCuenta(cuenta1);
 
         // Creamos un nuevo registro de cuenta
-        cuentaController.crearCuenta(cuenta1, conexion);
+        cuentaController.crearCuenta(cuenta1);
 
-        /*
+        Cuenta cuenta2 = new Cuenta("C002", "CC01", 500.0,"00201");
+
+        // Validamos los datos de la cuenta
+        cuentaController.validarDatosCuenta(cuenta2);
+
+        // Creamos un nuevo registro de cuenta
+        cuentaController.crearCuenta(cuenta2);
+
         // Realizamos un depósito en la cuenta
-        Deposito deposito1 = new Deposito(200.0, cuenta1.getIdCuenta());
+        Deposito deposito1 = new Deposito(200.0, cuenta2.getClabe());
 
         // Validamos los datos del depósito
-        TransaccionController.validarDatosTransaccion(deposito1);
+        transaccionController.validarDatosDeposito(deposito1);
 
         // Realizamos el depósito
-        DepositoController.realizarDeposito(deposito1, conexion);
-
+        transaccionController.hacerDeposito(deposito1,cuenta1);
+/*
         // Obtenemos los registros de transferencias
         TransaccionController.obtenerTransferencias(conexion);
 
@@ -67,19 +80,20 @@ public class Main {
         // Obtenemos los registros de transferencias
         TransaccionController.obtenerTransferencias(conexion);
 
-        // Actualizamos el saldo de la cuenta
-        CuentaController.actualizarSaldoCuenta(cuenta1.getIdCuenta(), 650.0, conexion);
-        */
-
         // Obtenemos los registros de cuentas
-        clienteController.obtenerCuentasCliente(cliente1, conexion);
+        clienteController.obtenerCuentasCliente(cliente1);
+
+ */
+        //Estado de cuenta
+        cuentaController.crearEstadoDeCuenta(cuenta1);
 
         // Eliminamos la cuenta
-        cuentaController.eliminarCuenta(cuenta1, conexion);
+        cuentaController.eliminarCuenta(cuenta1);
+
+        // Eliminamos la cuenta
+        cuentaController.eliminarCuenta(cuenta2);
 
         //Eliminamos cliente
-        clienteController.eliminarCliente(cliente1, conexion);
+        clienteController.eliminarCliente(cliente1);
     }
 }
-
-

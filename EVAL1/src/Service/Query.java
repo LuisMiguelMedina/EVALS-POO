@@ -13,32 +13,24 @@ public class Query {
     public Query(Conexion conexion) {
         this.conexion = conexion;
     }
-    public Conexion obtenerConexion() {
-        return conexion;
-    }
-    public boolean validarConexion() {
-        return conexion.validarConexion();
-    }
-
-    //Cambiar rutas a constantes!
     //Leer registros
     public List<String[]> obtenerRegistrosClientes() throws IOException {
-        String rutaClientes = conexion.getRutaArchivos() + "/DatosClientes.csv";
+        String rutaClientes = conexion.getRutaArchivos() + conexion.getRutaClientes();
         crudRegistros = new CRUDRegistros(rutaClientes);
         return crudRegistros.leerRegistros();
     }
     public List<String[]> obtenerRegistrosCuentas() throws IOException {
-        String rutaCuentas = conexion.getRutaArchivos() + "/DatosCuentas.csv";
+        String rutaCuentas = conexion.getRutaArchivos() + conexion.getRutaCuentas();
         CRUDRegistros crudRegistros = new CRUDRegistros(rutaCuentas);
         return crudRegistros.leerRegistros();
     }
     public List<String[]> obtenerRegistrosTransferencias() throws IOException {
-        String rutaTransferencias = conexion.getRutaArchivos() + "/DatosTransferencias.csv";
+        String rutaTransferencias = conexion.getRutaArchivos() + conexion.getRutaTransacciones();
         CRUDRegistros crudRegistros = new CRUDRegistros(rutaTransferencias);
         return crudRegistros.leerRegistros();
     }
     public String obtenerUltimoIdCliente() throws IOException {
-        String rutaClientes = conexion.getRutaArchivos() + "/DatosClientes.csv";
+        String rutaClientes = conexion.getRutaArchivos() + conexion.getRutaClientes();
         CRUDRegistros crudRegistros = new CRUDRegistros(rutaClientes);
         List<String[]> registrosClientes = crudRegistros.leerRegistros();
         String ultimoIdCliente = "";
@@ -49,7 +41,7 @@ public class Query {
         return ultimoIdCliente;
     }
     public String[] obtenerRegistroClientePorId(String idCliente) throws IOException {
-        String rutaClientes = conexion.getRutaArchivos() + "/DatosClientes.csv";
+        String rutaClientes = conexion.getRutaArchivos() + conexion.getRutaClientes();
         crudRegistros = new CRUDRegistros(rutaClientes);
         List<String[]> registrosClientes = crudRegistros.leerRegistros();
         for (String[] registro : registrosClientes) {
@@ -59,30 +51,43 @@ public class Query {
         }
         return null;
     }
+    public String obtenerNombreClientePorId(String idCliente) throws IOException {
+        Query query = new Query(new Conexion());
+        List<String[]> registrosClientes = query.obtenerRegistrosClientes();
+        for (String[] registro : registrosClientes) {
+            if (registro[0].equals(idCliente)) {
+                return registro[1];
+            }
+        }
+        return null;
+    }
     // Crear Registros
     public void escribirRegistroCliente(String[] registro) throws IOException {
-        String rutaClientes = conexion.getRutaArchivos() + "/DatosClientes.csv";
+        String rutaClientes = conexion.getRutaArchivos() + conexion.getRutaClientes();
         crudRegistros = new CRUDRegistros(rutaClientes);
         crudRegistros.escribirRegistro(registro);
     }
 
     public void escribirRegistroCuenta(String[] registro) throws IOException {
-        String rutaCuentas = conexion.getRutaArchivos() + "/DatosCuentas.csv";
+        String rutaCuentas = conexion.getRutaArchivos() + conexion.getRutaCuentas();
         crudRegistros = new CRUDRegistros(rutaCuentas);
         crudRegistros.escribirRegistro(registro);
     }
     public void escribirRegistroTransaccion(String[] registro) throws IOException {
-        String rutaTransferencias = conexion.getRutaArchivos() + "/DatosTransferencias.csv";
+        String rutaTransferencias = conexion.getRutaArchivos() + conexion.getRutaTransacciones();
         crudRegistros = new CRUDRegistros(rutaTransferencias);
         crudRegistros.escribirRegistro(registro);
     }
     // Update Registros
-    public void actualizarSaldoCuenta(String idCuenta, double nuevoSaldo) throws IOException {
+    public void actualizarSaldoCuenta(String clabe, double nuevoSaldo) throws IOException {
+        String rutaCuentas = conexion.getRutaArchivos() + conexion.getRutaCuentas();
+        crudRegistros = new CRUDRegistros(rutaCuentas);
         List<String[]> registrosCuentas = obtenerRegistrosCuentas();
+        String nuevoSaldoString = Double.toString(nuevoSaldo);
         int i = 0;
         for (String[] registroCuenta : registrosCuentas) {
-            if (registroCuenta[1].equals(idCuenta)) {
-                crudRegistros.actualizarCelda(i, 2, String.valueOf(nuevoSaldo));
+            if (registroCuenta[3].equals(clabe)) {
+                crudRegistros.actualizarCelda(i,2,nuevoSaldoString);
                 break;
             }
             i++;
@@ -90,13 +95,12 @@ public class Query {
     }
     //Delete Registros
     public void eliminarRegistroCliente(int numeroFila) throws IOException {
-        String rutaClientes = conexion.getRutaArchivos() + "/DatosClientes.csv";
+        String rutaClientes = conexion.getRutaArchivos() + conexion.getRutaClientes();
         crudRegistros = new CRUDRegistros(rutaClientes);
         crudRegistros.eliminarRegistro(numeroFila);
     }
-
     public void eliminarRegistroCuenta(int numeroFila) throws IOException {
-        String rutaCuenta = conexion.getRutaArchivos() + "/DatosCuentas.csv";
+        String rutaCuenta = conexion.getRutaArchivos() + conexion.getRutaCuentas();
         crudRegistros = new CRUDRegistros(rutaCuenta);
         crudRegistros.eliminarRegistro(numeroFila);
     }

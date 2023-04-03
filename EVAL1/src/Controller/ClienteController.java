@@ -3,29 +3,27 @@ package src.Controller;
 import src.DAO.Conexion;
 import src.Model.Cliente;
 import src.Service.Query;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 public class ClienteController {
-    public boolean validarDatosCliente(Cliente cliente) throws IOException {
-            if (cliente.getIdCliente().isEmpty() || cliente.getNombre().isEmpty() || cliente.getTelefono().isEmpty() || cliente.getCorreo().isEmpty()) {
-                return false;
-            }
-            if (!cliente.getNombre().matches("^[A-Za-z]+(?:\\s[A-Za-z]+){0,3}$")){
-                return false;
-            }
-            if (!cliente.getCorreo().contains("@")) {
-                return false;
-            }
-            if (!cliente.getTelefono().matches("^\\+\\d{1,3}-\\d{1,3}-\\d{3}-\\d{4}$")){
-                return false;
-            }
-            return true;
+    public boolean validarDatosCliente(Cliente cliente) {
+        if (cliente.getIdCliente().isEmpty() || cliente.getNombre().isEmpty() || cliente.getTelefono().isEmpty() || cliente.getCorreo().isEmpty()) {
+            return false;
+        }
+        if (!cliente.getNombre().matches("^[A-Za-z]+(?:\\s[A-Za-z]+){0,3}$")){
+            return false;
+        }
+        if (!cliente.getCorreo().contains("@")) {
+            return false;
+        }
+        if (!cliente.getTelefono().matches("^\\+\\d{1,3}-\\d{1,3}-\\d{3}-\\d{4}$")){
+            return false;
+        }
+        return true;
     }
-    public void obtenerCuentasCliente(Cliente cliente, Conexion conexion) throws IOException {
-        Query query = new Query(conexion);
+    public void obtenerCuentasCliente(Cliente cliente) throws IOException {
+        Query query = new Query(new Conexion());
         String idCliente = cliente.getIdCliente();
         String[] registroCliente = query.obtenerRegistroClientePorId(idCliente);
 
@@ -51,8 +49,8 @@ public class ClienteController {
             System.out.println("No se encontró el cliente con ID " + idCliente);
     }
 
-    public void crearCliente(Cliente cliente, Conexion conexion) throws IOException {
-        Query query = new Query(conexion);
+    public void crearCliente(Cliente cliente) throws IOException {
+        Query query = new Query(new Conexion());
         String[] datosCliente = {
                 String.format("C%03d", Integer.parseInt(query.obtenerUltimoIdCliente().substring(1)) + 1),
                 cliente.getNombre(),
@@ -67,8 +65,8 @@ public class ClienteController {
             System.out.println("Datos de cliente no válidos. No se ha creado el cliente.");
         }
     }
-    public void eliminarCliente(Cliente cliente, Conexion conexion) throws IOException {
-        Query query = new Query(conexion);
+    public void eliminarCliente(Cliente cliente) throws IOException {
+        Query query = new Query(new Conexion());
         List<String[]> registrosClientes = query.obtenerRegistrosClientes();
         int i = 0;
         for (String[] registro : registrosClientes) {

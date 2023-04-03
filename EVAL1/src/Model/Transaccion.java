@@ -4,6 +4,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 public class Transaccion {
     protected double monto;
+    public double getMonto() {
+        return monto;
+    }
     public static class Fecha {
         public static String getCurrentTimestamp() {
             LocalDateTime now = LocalDateTime.now();
@@ -15,4 +18,3 @@ public class Transaccion {
         this.monto = monto;
     }
 }
-

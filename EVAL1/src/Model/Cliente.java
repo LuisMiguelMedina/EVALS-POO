@@ -21,7 +21,6 @@ public class Cliente {
     public String getTelefono() {
         return telefono;
     }
-
     public String getCorreo() {
         return correo;
     }

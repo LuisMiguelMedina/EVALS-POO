@@ -1,17 +1,14 @@
 package src.Controller;
 
 import src.DAO.Conexion;
-import src.Model.Cliente;
 import src.Model.Cuenta;
+import src.Model.Transaccion;
 import src.Service.Query;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-
 public class CuentaController {
-    ClienteController clienteController = new ClienteController();
-    public boolean validarDatosCuenta(Cuenta cuenta) throws IOException {
-        if (cuenta.getIdCliente().isEmpty() || cuenta.getIdCuenta().isEmpty() || Double.valueOf(cuenta.getSaldo()).equals(0.0))  {
+    public boolean validarDatosCuenta(Cuenta cuenta) {
+        if (cuenta.getIdCliente().isEmpty() || cuenta.getIdCuenta().isEmpty() || Double.valueOf(cuenta.getSaldo()).equals(0.0) || cuenta.getClabe().isEmpty())  {
             return false;
         }
         if (!cuenta.getIdCliente().matches("^C\\d{3}$")){
@@ -23,15 +20,19 @@ public class CuentaController {
         if (!String.valueOf(cuenta.getSaldo()).matches("^(?:0|[1-9]\\d*)(?:\\.\\d+|\\.0+)?$")) {
             return false;
         }
+        if (!cuenta.getClabe().matches("^0*[1-9][0-9]*$")){
+            return false;
+        }
         return true;
     }
-    public void crearCuenta(Cuenta cuenta, Conexion conexion) throws IOException {
-        Query query = new Query(conexion);
+    public void crearCuenta(Cuenta cuenta) throws IOException {
+        Query query = new Query(new Conexion());
         String saldoCuenta = String.valueOf(cuenta.getSaldo());
         String[] datosCuentas = {
                 cuenta.getIdCliente(),
                 cuenta.getIdCuenta(),
-                saldoCuenta
+                saldoCuenta,
+                cuenta.getClabe()
         };
         if (validarDatosCuenta(cuenta)) {
             query.escribirRegistroCuenta(datosCuentas);
@@ -41,8 +42,8 @@ public class CuentaController {
             System.out.println("Datos de cuenta no válidos. No se ha creado la cuenta.");
         }
     }
-    public void eliminarCuenta(Cuenta cuenta, Conexion conexion) throws IOException {
-        Query query = new Query(conexion);
+    public void eliminarCuenta(Cuenta cuenta) throws IOException {
+        Query query = new Query(new Conexion());
         List<String[]> registrosCuentas = query.obtenerRegistrosCuentas();
         int i = 0;
         for (String[] registro : registrosCuentas) {
@@ -53,5 +54,14 @@ public class CuentaController {
             }
             i++;
         }
+    }
+    public void crearEstadoDeCuenta(Cuenta cuenta) throws IOException {
+        System.out.println("Estado de cuenta de la cuenta " + cuenta.getIdCuenta());
+        System.out.println("Saldo actual: " + cuenta.getSaldo());
+        System.out.println("Transacciones realizadas:");
+        if (cuenta.estadoDeCuenta()!=null){
+            System.out.println(cuenta.estadoDeCuenta());
+        } else
+            System.out.println("No hay operaciones realizadas");
     }
 }

@@ -1,23 +1,19 @@
 package src.DAO;
-
-import java.io.File;
 public class Conexion {
-    private static final String RUTA_ARCHIVOS = "EVAL1/src/CSVArchivos";
-    public boolean validarConexion() {
-        File carpetaArchivos = new File(RUTA_ARCHIVOS);
-        if (carpetaArchivos.exists() && carpetaArchivos.isDirectory()) {
-            String[] nombresArchivos = {"DatosClientes.csv", "DatosCuentas.csv", "DatosTransferencias.csv"};
-            for (String nombreArchivo : nombresArchivos) {
-                File archivo = new File(carpetaArchivos, nombreArchivo);
-                if (!archivo.exists() || archivo.isDirectory()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return false;
-    }
+    private static final String RUTA_ARCHIVOS = "EVAL1/src/CSVArchivos/";
+    private static final String RUTA_CLIENTES = "DatosClientes.csv";
+    private static final String RUTA_CUENTAS = "DatosCuentas.csv";
+    private static final String RUTA_TRANSACCIONES = "DatosTransferencias.csv";
     public String getRutaArchivos() {
         return RUTA_ARCHIVOS;
+    }
+    public String getRutaClientes() {
+        return RUTA_CLIENTES;
+    }
+    public String getRutaCuentas() {
+        return RUTA_CUENTAS;
+    }
+    public String getRutaTransacciones() {
+        return RUTA_TRANSACCIONES;
     }
 }
