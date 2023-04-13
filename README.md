@@ -1,27 +1,20 @@
-# EVAL-2
+# EVAL-3
 
 # Client:
-Your system is weird, i like it!
-<br>
-"Modelo" and "Controllers" need to be created in order to implement the MVC architecture properly. Let's start by creating them.
-<br>
-Additionally, we may also want to create a "Connection" and "Query" class, which would make it easier for the architecture to swap the CVS package with a DB."
+We're about to go on vacation, take advantage of it to finish the project. This time, you won't be using CSV files anymore. We're now going to migrate to a real DB and verify that all you need, according to your design, is to modify the query classes, CRUDRegistros, and Connection.
 
 ## Requirements:
  |Non-Functional|Functional|
  |--------------|----------|
- |NF01: Make and organize Modelo and Controllers packages |F01: Make a Query class |
- |NF02: Make an MVC architecture using the csv as DB |F02: Make a Connection class|
+ |NF01: Migrate to DB (Finally) |F01: Make the necessary changes to the query, CRUDRegistros, and Connection classes |
  
  ## Limitations:
- - Cannot use a DB [Still cannot use it :(]
  - Cannot use frameworks [java vanilla]
+ - Cannot modify Models and Controllers [It could happen in case of fixing something but it shouldn't]
  
  ## Notes:
-- Remember model and controller definitions, if you dont know ask your nearby IT professor.
-- Your code at this point may be a bit messy, which is understandable. You may need to clean it up to make it more organized and readable
-- By the way, it will be a pain, but if you are asked to make queries with the CSV files... I hope you have someone to pray to
+- You might be excited that now you'll be able to use a database instead of having to struggle with everything using files. Well, I just wanted to remind you that now you also have to build the View.
 
 ## Class Diagram:
 ![EVAL1-DiagramClass](EVAL1/Documentation/Eval1.png)
-[Im bad at this, dont worry, you´ll probably make it better]
+[Minor changes and its done]
