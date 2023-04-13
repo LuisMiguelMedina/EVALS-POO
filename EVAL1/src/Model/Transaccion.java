@@ -4,6 +4,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 public class Transaccion {
     protected double monto;
+    public Transaccion(double monto) {
+        this.monto = monto;
+    }
     public double getMonto() {
         return monto;
     }
@@ -13,8 +16,5 @@ public class Transaccion {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
             return now.format(formatter);
         }
-    }
-    public Transaccion(double monto) {
-        this.monto = monto;
     }
 }

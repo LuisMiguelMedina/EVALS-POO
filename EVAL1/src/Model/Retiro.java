@@ -3,16 +3,28 @@ package src.Model;
 import src.DAO.Conexion;
 import src.Service.Query;
 import java.io.IOException;
+import java.util.List;
+
 public class Retiro extends Transaccion {
     public Retiro(double monto) {
         super(monto);
     }
-    public void hacerRetiro(Cuenta cuenta, Retiro retiro) throws IOException {
+    public void hacerRetiro(Cuenta cuenta) throws IOException {
         Query query = new Query(new Conexion());
-        double fondoTotal = cuenta.getSaldo() - retiro.getMonto();
-        // Actualizar DatosCuentas para retiro
-        query.actualizarSaldoCuenta(cuenta.getClabe(), fondoTotal);
-        String[] retiroRegistro = {cuenta.getClabe(), "-" + fondoTotal, Transaccion.Fecha.getCurrentTimestamp()};
+        Retiro retiro = new Retiro(monto);
+        String saldoCuentaString = query.obtenerSaldoCuentas(cuenta.getClabe());
+        double saldoCuenta = Double.parseDouble(saldoCuentaString);
+        double fondoTotal = saldoCuenta - retiro.getMonto();
+        String fondoTotalString = Double.toString(fondoTotal);
+        List<String[]> registrosCuentas = query.obtenerRegistrosCuentas();
+        int i = 0;
+        for (String[] registro : registrosCuentas) {
+            if (registro[3].equals(cuenta.getClabe())) {
+                query.actualizarCeldaSaldo(i,2,fondoTotalString);
+            }
+            i++;
+        }
+        String[] retiroRegistro = {cuenta.getClabe(), "-" + retiro.getMonto(), Transaccion.Fecha.getCurrentTimestamp()};
         query.escribirRegistroTransaccion(retiroRegistro);
         System.out.println("Tu cuenta " + cuenta.getClabe() + " retiró -" + retiro.getMonto() + "$ el " + Transaccion.Fecha.getCurrentTimestamp());
     }

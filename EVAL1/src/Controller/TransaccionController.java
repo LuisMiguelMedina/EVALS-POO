@@ -3,9 +3,11 @@ package src.Controller;
 import src.DAO.Conexion;
 import src.Model.Cuenta;
 import src.Model.Deposito;
+import src.Model.Retiro;
 import src.Service.Query;
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 
 public class TransaccionController {
     //Deposito
@@ -54,5 +56,34 @@ public class TransaccionController {
                 System.out.println("Datos para deposito invalidos");
         } else
             System.out.println("Error deposito no realizado");
+    }
+
+    //Retiro
+    public boolean validarDatosRetiro(Retiro retiro) {
+        if (Double.valueOf(retiro.getMonto()).equals(0.0)){
+            return false;
+        }
+        if (!String.valueOf(retiro.getMonto()).matches("^0*[1-9][0-9]*(\\.[0-9]{1,2})?$")) {
+            return false;
+        }
+        return true;
+    }
+    public boolean validarSaldo(Retiro retiro, Cuenta cuenta) {
+        if (cuenta.getSaldo() < retiro.getMonto()){
+            System.out.println("Fondos insuficientes");
+            return false;
+        }
+        return true;
+    }
+    public void hacerRetiro(Retiro retiro, Cuenta cuenta) throws IOException {
+        CuentaController cuentaController = new CuentaController();
+        if (cuentaController.validarDatosCuenta(cuenta)) {
+            if (validarDatosRetiro(retiro) && validarSaldo(retiro, cuenta)) {
+                retiro.hacerRetiro(cuenta);
+                System.out.println("Retiro realizado!");
+            } else
+                System.out.println("Datos para retiro invalidos");
+        } else
+            System.out.println("Error retiro no realizado");
     }
 }

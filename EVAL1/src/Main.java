@@ -7,10 +7,7 @@ import src.DAO.Conexion;
 
 import src.Controller.ClienteController;
 
-import src.Model.Cliente;
-import src.Model.Cuenta;
-import src.Model.Deposito;
-import src.Model.Retiro;
+import src.Model.*;
 import src.Service.Query;
 
 import java.io.IOException;
@@ -64,28 +61,19 @@ public class Main {
 
         // Realizamos el depósito
         transaccionController.hacerDeposito(deposito1,cuenta1);
-/*
-        // Obtenemos los registros de transferencias
-        TransaccionController.obtenerTransferencias(conexion);
 
         // Realizamos un retiro de la cuenta
-        Retiro retiro1 = new Retiro(cuenta1.getIdCuenta(),50.0);
+        Retiro retiro1 = new Retiro(50.00);
 
         // Validamos los datos del retiro
-        TransaccionController.validarDatosTransaccion(retiro1);
+        transaccionController.validarDatosRetiro(retiro1);
 
         // Realizamos el retiro
-        RetiroController.realizarRetiro(retiro1, conexion);
+        transaccionController.hacerRetiro(retiro1,cuenta1);
 
-        // Obtenemos los registros de transferencias
-        TransaccionController.obtenerTransferencias(conexion);
-
-        // Obtenemos los registros de cuentas
-        clienteController.obtenerCuentasCliente(cliente1);
-
- */
         //Estado de cuenta
         cuentaController.crearEstadoDeCuenta(cuenta1);
+        cuentaController.crearEstadoDeCuenta(cuenta2);
 
         // Eliminamos la cuenta
         cuentaController.eliminarCuenta(cuenta1);

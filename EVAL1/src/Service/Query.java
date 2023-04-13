@@ -4,7 +4,6 @@ import src.DAO.CRUDRegistros;
 import src.DAO.Conexion;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Query {
@@ -13,6 +12,7 @@ public class Query {
     public Query(Conexion conexion) {
         this.conexion = conexion;
     }
+
     //Leer registros
     public List<String[]> obtenerRegistrosClientes() throws IOException {
         String rutaClientes = conexion.getRutaArchivos() + conexion.getRutaClientes();
@@ -52,11 +52,19 @@ public class Query {
         return null;
     }
     public String obtenerNombreClientePorId(String idCliente) throws IOException {
-        Query query = new Query(new Conexion());
-        List<String[]> registrosClientes = query.obtenerRegistrosClientes();
+        List<String[]> registrosClientes = obtenerRegistrosClientes();
         for (String[] registro : registrosClientes) {
             if (registro[0].equals(idCliente)) {
                 return registro[1];
+            }
+        }
+        return null;
+    }
+    public String obtenerSaldoCuentas(String cuentaClabe) throws IOException {
+        List<String[]> registrosCuentas = obtenerRegistrosCuentas();
+        for (String[] registro : registrosCuentas) {
+            if (registro[3].equals(cuentaClabe)) {
+                return registro[2];
             }
         }
         return null;
@@ -79,20 +87,12 @@ public class Query {
         crudRegistros.escribirRegistro(registro);
     }
     // Update Registros
-    public void actualizarSaldoCuenta(String clabe, double nuevoSaldo) throws IOException {
+    public void actualizarCeldaSaldo(int numeroFila, int numeroColumna, String valor) throws IOException {
         String rutaCuentas = conexion.getRutaArchivos() + conexion.getRutaCuentas();
-        crudRegistros = new CRUDRegistros(rutaCuentas);
-        List<String[]> registrosCuentas = obtenerRegistrosCuentas();
-        String nuevoSaldoString = Double.toString(nuevoSaldo);
-        int i = 0;
-        for (String[] registroCuenta : registrosCuentas) {
-            if (registroCuenta[3].equals(clabe)) {
-                crudRegistros.actualizarCelda(i,2,nuevoSaldoString);
-                break;
-            }
-            i++;
-        }
+        CRUDRegistros crudRegistros = new CRUDRegistros(rutaCuentas);
+        crudRegistros.actualizarCelda(numeroFila, numeroColumna, valor);
     }
+
     //Delete Registros
     public void eliminarRegistroCliente(int numeroFila) throws IOException {
         String rutaClientes = conexion.getRutaArchivos() + conexion.getRutaClientes();

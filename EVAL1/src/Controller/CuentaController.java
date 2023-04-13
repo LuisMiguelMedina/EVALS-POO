@@ -55,9 +55,19 @@ public class CuentaController {
             i++;
         }
     }
+    public double validarSaldoCuenta(String cuentaClabe) {
+        Query query = new Query(new Conexion());
+        try {
+            String saldo = query.obtenerSaldoCuentas(cuentaClabe);
+            return Double.parseDouble(saldo);
+        }
+        catch (IOException | NumberFormatException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public void crearEstadoDeCuenta(Cuenta cuenta) throws IOException {
         System.out.println("Estado de cuenta de la cuenta " + cuenta.getIdCuenta());
-        System.out.println("Saldo actual: " + cuenta.getSaldo());
+        System.out.println("Saldo actual: " + validarSaldoCuenta(cuenta.getClabe()));
         System.out.println("Transacciones realizadas:");
         if (cuenta.estadoDeCuenta()!=null){
             System.out.println(cuenta.estadoDeCuenta());

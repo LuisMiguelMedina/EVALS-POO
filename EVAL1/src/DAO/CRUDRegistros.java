@@ -5,6 +5,9 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 public class CRUDRegistros {
@@ -39,12 +42,12 @@ public class CRUDRegistros {
     private void escribirRegistros() throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter(archivo));
         for (String[] registro : registros) {
-            bw.write(String.join(",", registro));
-            bw.newLine();
+            bw.write(String.join(",", registro) + System.lineSeparator());
         }
         bw.close();
     }
-    public void actualizarCelda(int numeroFila, int numeroColumna, String valor) {
+    public void actualizarCelda(int numeroFila, int numeroColumna, String valor) throws IOException {
         registros.get(numeroFila)[numeroColumna] = valor;
+        escribirRegistros(); // Se llama al método que escribe toda la lista en el archivo
     }
 }
