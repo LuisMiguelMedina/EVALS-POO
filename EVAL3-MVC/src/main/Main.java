@@ -1,9 +1,11 @@
 package src.main;
 
-import src.main.DAO.Conexion;
+import src.main.Controller.ClienteController;
+import src.main.Controller.ConexionController;
+import src.main.Controller.CuentaController;
+import src.main.Controller.TransaccionController;
 import src.main.Model.*;
 import src.main.View.Vista;
-
 import javax.swing.*;
 import java.io.IOException;
 
@@ -15,8 +17,8 @@ public class Main {
         vista.setLocationRelativeTo(null); // centra la ventana en la pantalla
         vista.setVisible(true);
         vista.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        +/
-        /*
+        */
+
         ClienteController clienteController = new ClienteController();
         CuentaController cuentaController = new CuentaController();
         TransaccionController transaccionController = new TransaccionController();
@@ -84,6 +86,5 @@ public class Main {
 
         //Eliminamos cliente
         clienteController.eliminarCliente(cliente1);
-        */
     }
 }
