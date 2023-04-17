@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EVALS-POO.iml" filepath="$PROJECT_DIR$/EVALS-POO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EVAL3-FINAL/EVAL3-MVC/EVAL3-MVC.iml" filepath="$PROJECT_DIR$/EVAL3-FINAL/EVAL3-MVC/EVAL3-MVC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/EVALS-POO.iml" filepath="$PROJECT_DIR$/.idea/EVALS-POO.iml" />
     </modules>
   </component>
 </project>
