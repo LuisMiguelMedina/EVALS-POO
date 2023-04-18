@@ -23,5 +23,5 @@ Additionally, we may also want to create a "Connection" and "Query" class, which
 - By the way, it will be a pain, but if you are asked to make queries with the CSV files... I hope you have someone to pray to
 
 ## Class Diagram:
-![EVAL1-DiagramClass](Documentation/Eval2.png)
+![EVAL2-DiagramClass](Documentation/EVAL2.png)
 [Im bad at this, dont worry, you´ll probably make it better]
