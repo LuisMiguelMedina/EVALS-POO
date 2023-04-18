@@ -5,18 +5,19 @@ import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
 public class Query {
-    private final ConexionController conexionController;
+    // Objeto de la clase ConexionController para obtener la conexión a la base de datos
+    private ConexionController conexionController;
+
+    // Constructor de la clase
     public Query(ConexionController conexionController) {
         this.conexionController = conexionController;
     }
     // Leer registros de la tabla "DatosClientes"
     public List<String[]> obtenerRegistrosClientes() throws SQLException {
         List<String[]> registros = new ArrayList<>();
-        Connection conn = null;
-        try {
-            conn = conexionController.getConnection();
-            Statement statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM DatosClientes");
+        try (Connection conn = conexionController.getConnection();
+             Statement statement = conn.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM DatosClientes")) {
             ResultSetMetaData metaData = resultSet.getMetaData();
             int columnas = metaData.getColumnCount();
             while (resultSet.next()) {
@@ -26,11 +27,8 @@ public class Query {
                 }
                 registros.add(fila);
             }
-        } finally {
-            if (conn != null) {
-                conn.close();
-            }
         }
+        conexionController.cerrarConexion();
         return registros;
     }
     // Leer registros de la tabla "DatosCuentas"
@@ -110,7 +108,7 @@ public class Query {
         ResultSet rs = pstmt.executeQuery();
 
         if (rs.next()) {
-            String[] registro = {rs.getString("idCliente"), rs.getString("nombre"), rs.getString("telefono"), rs.getString("email")};
+            String[] registro = {rs.getString("idCliente"), rs.getString("nombre"), rs.getString("telefono"), rs.getString("correo")};
             return registro;
         } else {
             return null;
@@ -131,7 +129,7 @@ public class Query {
     }
     public String obtenerSaldoCuentas(String cuentaClabe) throws SQLException {
         String saldo = null;
-        String sql = "SELECT saldo FROM DatosCuentas WHERE cuenta_clabe = ?";
+        String sql = "SELECT saldo FROM DatosCuentas WHERE clabe = ?";
         try (Connection conn = conexionController.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, cuentaClabe);
@@ -145,7 +143,7 @@ public class Query {
     }
     // Crear Registros
     public void escribirRegistroCliente(String[] registro) throws SQLException {
-        String query = "INSERT INTO DatosClientes (idCliente, nombre, direccion, telefono) " +
+        String query = "INSERT INTO DatosClientes (idCliente,nombre,telefono,correo) " +
                 "VALUES (?, ?, ?, ?)";
         try (Connection connection = conexionController.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
@@ -157,7 +155,7 @@ public class Query {
         }
     }
     public void escribirRegistroCuenta(String[] registro) throws SQLException {
-        String query = "INSERT INTO DatosCuentas (idCuenta, idCliente, saldo, clabe) " +
+        String query = "INSERT INTO DatosCuentas (idCliente,idCuenta,saldo,clabe) " +
                 "VALUES (?, ?, ?, ?)";
         try (Connection connection = conexionController.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
@@ -169,7 +167,7 @@ public class Query {
         }
     }
     public void escribirRegistroTransaccion(String[] registro) throws SQLException {
-        String query = "INSERT INTO DatosTransferencias (clabe, monto, fecha) " +
+        String query = "INSERT INTO DatosTransferencias (clabe,monto,fecha) " +
                 "VALUES (?, ?, ?)";
         try (Connection connection = conexionController.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
@@ -181,11 +179,11 @@ public class Query {
     }
 
     // Update
-    public void actualizarCeldaSaldo(int numeroFila, String saldo) {
+    public void actualizarCeldaSaldo(String clabe, String saldo) {
         try {
             Connection conn = conexionController.getConnection();
             Statement stmt = conn.createStatement();
-            String sql = "UPDATE DatosCuentas SET Saldo = '" + saldo + "' WHERE Id = " + numeroFila;
+            String sql = "UPDATE DatosCuentas SET saldo = '" + saldo + "' WHERE clabe = " + clabe;
             stmt.executeUpdate(sql);
             conn.close();
         } catch (SQLException e) {
@@ -194,24 +192,35 @@ public class Query {
     }
 
     // Delete
-    public void eliminarRegistroCliente(int idCliente) throws SQLException {
-        String query = "DELETE FROM DatosClientes WHERE IdCliente = ?";
+    public void eliminarRegistroCliente(String idCliente) throws SQLException {
+        String query = "DELETE FROM DatosClientes WHERE idCliente = ?";
         try (Connection conn = conexionController.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, idCliente);
+            pstmt.setString(1, idCliente);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public void eliminarRegistroCuenta(int idCuenta) {
-        String query = "DELETE FROM DatosCuentas WHERE IdCuenta = ?";
+    public void eliminarRegistroCuenta(String clabe) {
+        String query = "DELETE FROM DatosCuentas WHERE clabe = ?";
         try (Connection conn = conexionController.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, idCuenta);
+            pstmt.setString(1, clabe);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+    public void eliminarTransferenciasDeCuenta(String clabe) throws SQLException {
+        String query = "DELETE FROM DatosTransferencias WHERE clabe = ?";
+        try (Connection conn = conexionController.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, clabe);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

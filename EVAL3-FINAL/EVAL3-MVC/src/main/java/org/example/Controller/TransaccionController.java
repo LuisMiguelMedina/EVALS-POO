@@ -82,4 +82,12 @@ public class TransaccionController {
         } else
             System.out.println("Error retiro no realizado");
     }
+    public void eliminarHistorialTransferencias(Cuenta cuenta) throws SQLException {
+        CuentaController cuentaController = new CuentaController();
+        Query query = new Query(new ConexionController());
+        if (cuentaController.validarDatosCuenta(cuenta)) {
+            query.eliminarTransferenciasDeCuenta(cuenta.getClabe());
+        } else
+            System.out.println("Error datos incorrectos");
+    }
 }

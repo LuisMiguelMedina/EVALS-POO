@@ -19,7 +19,7 @@ public class Retiro extends Transaccion {
         int i = 0;
         for (String[] registro : registrosCuentas) {
             if (registro[3].equals(cuenta.getClabe())) {
-                query.actualizarCeldaSaldo(i, fondoTotalString);
+                query.actualizarCeldaSaldo(cuenta.getClabe(), fondoTotalString);
             }
             i++;
         }

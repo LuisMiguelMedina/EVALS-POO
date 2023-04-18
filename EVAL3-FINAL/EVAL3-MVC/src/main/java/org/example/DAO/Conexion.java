@@ -2,12 +2,12 @@ package org.example.DAO;
 import java.sql.*;
 public class Conexion {
     // Cadena de conexión a la base de datos
-    static String user = System.getenv("USER_SECRET");
-    static String password = System.getenv("PASS_SECRET");
+    static String user = "";
+    static String password = "";
     private static final String ConnectionString = "jdbc:sqlserver://luismifmat.database.windows.net:1433;"
             + "database=LuisMFmat;"
-            + "user="+ user + ";"
-            + "password="+ password + ";"
+            + "user="+user
+            + "password="+password
             + "encrypt=true;"
             + "trustServerCertificate=false;"
             + "hostNameInCertificate=*.database.windows.net;"
@@ -22,7 +22,6 @@ public class Conexion {
     public void abrir() {
         try {
             connection = DriverManager.getConnection(ConnectionString);
-            System.out.println("Conexion abierta");
         } catch (SQLException ex) {
             System.out.println("Error al abrir la conexión: " + ex.getMessage());
         }
@@ -39,6 +38,14 @@ public class Conexion {
     public Connection getConnection() {
         if (connection == null) {
             abrir();
+        } else {
+            try {
+                if (connection.isClosed()) {
+                    abrir();
+                }
+            } catch (SQLException ex) {
+                System.out.println("Error al comprobar el estado de la conexión: " + ex.getMessage());
+            }
         }
         return connection;
     }

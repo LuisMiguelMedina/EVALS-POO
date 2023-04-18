@@ -53,7 +53,7 @@ public class ClienteController {
     public void crearCliente(Cliente cliente) throws SQLException {
         Query query = new Query(new ConexionController());
         String[] datosCliente = {
-                String.format("C%03d", Integer.parseInt(query.obtenerUltimoIdCliente().substring(1)) + 1),
+                cliente.getIdCliente(),
                 cliente.getNombre(),
                 cliente.getTelefono(),
                 cliente.getCorreo()
@@ -72,7 +72,7 @@ public class ClienteController {
         int i = 0;
         for (String[] registro : registrosClientes) {
             if (registro[0].equals(cliente.getIdCliente())) {
-                query.eliminarRegistroCliente(i);
+                query.eliminarRegistroCliente(cliente.getIdCliente());
                 System.out.println("Cliente eliminado exitosamente.");
                 return;
             }
@@ -80,7 +80,3 @@ public class ClienteController {
         }
     }
 }
-
-
-
-

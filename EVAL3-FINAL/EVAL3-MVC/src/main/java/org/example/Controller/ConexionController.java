@@ -3,9 +3,8 @@ package org.example.Controller;
 import org.example.DAO.Conexion;
 import java.sql.*;
 public class ConexionController {
-
     // Objeto de la clase Conexion para establecer la conexión a la base de datos
-    private Conexion conexion;
+    private final Conexion conexion;
 
     // Constructor de la clase
     public ConexionController() {

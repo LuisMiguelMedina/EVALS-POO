@@ -41,12 +41,14 @@ public class CuentaController {
         }
     }
     public void eliminarCuenta(Cuenta cuenta) throws SQLException {
+        TransaccionController transaccionController = new TransaccionController();
         Query query = new Query(new ConexionController());
         List<String[]> registrosCuentas = query.obtenerRegistrosCuentas();
         int i = 0;
         for (String[] registro : registrosCuentas) {
             if (registro[0].equals(cuenta.getIdCliente()) && registro[1].equals(cuenta.getIdCuenta())) {
-                query.eliminarRegistroCuenta(i);
+                transaccionController.eliminarHistorialTransferencias(cuenta);
+                query.eliminarRegistroCuenta(cuenta.getClabe());
                 System.out.println("Cuenta eliminada exitosamente.");
                 return;
             }

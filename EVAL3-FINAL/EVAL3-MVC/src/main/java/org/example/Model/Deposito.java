@@ -35,7 +35,7 @@ public class Deposito extends Transaccion {
         int i = 0;
         for (String[] registro : registrosCuentas) {
             if (registro[3].equals(deposito.getClabeDestino())) {
-                query.actualizarCeldaSaldo(i, fondoTotalString);
+                query.actualizarCeldaSaldo(deposito.getClabeDestino(), fondoTotalString);
                 System.out.println("La cuenta " + deposito.getClabeDestino() + " recibió +" + deposito.getMonto() + "$ el " + Transaccion.Fecha.getCurrentTimestamp());
                 break;
             }
