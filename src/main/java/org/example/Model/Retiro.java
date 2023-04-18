@@ -10,10 +10,9 @@ public class Retiro extends Transaccion {
     }
     public void hacerRetiro(Cuenta cuenta) throws SQLException {
         Query query = new Query(new ConexionController());
-        Retiro retiro = new Retiro(monto);
         String saldoCuentaString = query.obtenerSaldoCuentas(cuenta.getClabe());
         double saldoCuenta = Double.parseDouble(saldoCuentaString);
-        double fondoTotal = saldoCuenta - retiro.getMonto();
+        double fondoTotal = saldoCuenta - monto;
         String fondoTotalString = Double.toString(fondoTotal);
         List<String[]> registrosCuentas = query.obtenerRegistrosCuentas();
         int i = 0;
@@ -23,8 +22,8 @@ public class Retiro extends Transaccion {
             }
             i++;
         }
-        String[] retiroRegistro = {cuenta.getClabe(), "-" + retiro.getMonto(), Transaccion.Fecha.getCurrentTimestamp()};
+        String[] retiroRegistro = {cuenta.getClabe(), "-" + monto, Transaccion.Fecha.getCurrentTimestamp()};
         query.escribirRegistroTransaccion(retiroRegistro);
-        System.out.println("Tu cuenta " + cuenta.getClabe() + " retiró -" + retiro.getMonto() + "$ el " + Transaccion.Fecha.getCurrentTimestamp());
+        System.out.println("Tu cuenta " + cuenta.getClabe() + " retiró -" + monto + "$ el " + Transaccion.Fecha.getCurrentTimestamp());
     }
 }

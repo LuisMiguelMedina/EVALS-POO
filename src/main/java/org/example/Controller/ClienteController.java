@@ -23,33 +23,6 @@ public class ClienteController {
         }
         return true;
     }
-    public void obtenerCuentasCliente(Cliente cliente) throws SQLException {
-        Query query = new Query(new ConexionController());
-        String idCliente = cliente.getIdCliente();
-        String[] registroCliente = query.obtenerRegistroClientePorId(idCliente);
-
-        if (registroCliente != null) {
-            List<String[]> registrosCuentas = query.obtenerRegistrosCuentas();
-            List<Object> cuentas = new ArrayList<>();
-
-            for (String[] registro : registrosCuentas) {
-                if (registro[0].equals(idCliente)) {
-                    cuentas.add(registro[1]);
-                }
-            }
-            if (!cuentas.isEmpty()) {
-                System.out.println("Las cuentas del cliente " + cliente.getNombre() + " son:");
-                for (Object cuenta : cuentas) {
-                    System.out.println(cuenta);
-                }
-            }
-            else
-                System.out.println("El cliente " + cliente.getNombre() + " no tiene cuentas.");
-        }
-        else
-            System.out.println("No se encontró el cliente con ID " + idCliente);
-    }
-
     public void crearCliente(Cliente cliente) throws SQLException {
         Query query = new Query(new ConexionController());
         String[] datosCliente = {

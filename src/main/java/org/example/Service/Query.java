@@ -5,10 +5,7 @@ import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
 public class Query {
-    // Objeto de la clase ConexionController para obtener la conexión a la base de datos
-    private ConexionController conexionController;
-
-    // Constructor de la clase
+    private final ConexionController conexionController;
     public Query(ConexionController conexionController) {
         this.conexionController = conexionController;
     }
@@ -85,34 +82,6 @@ public class Query {
             }
         }
         return registrosTransferencias;
-    }
-    public String obtenerUltimoIdCliente() {
-        String ultimoIdCliente = "";
-        String sql = "SELECT TOP 1 idCliente FROM DatosClientes ORDER BY idCliente DESC";
-        try (Connection conn = conexionController.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
-            if (rs.next()) {
-                ultimoIdCliente = rs.getString("idCliente");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return ultimoIdCliente;
-    }
-    public String[] obtenerRegistroClientePorId(String idCliente) throws SQLException {
-        Connection conn = conexionController.getConnection();
-        String sql = "SELECT * FROM DatosClientes WHERE idCliente=?";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, idCliente);
-        ResultSet rs = pstmt.executeQuery();
-
-        if (rs.next()) {
-            String[] registro = {rs.getString("idCliente"), rs.getString("nombre"), rs.getString("telefono"), rs.getString("correo")};
-            return registro;
-        } else {
-            return null;
-        }
     }
     public String obtenerNombreClientePorId(String idCliente) throws SQLException {
         String query = "SELECT nombre FROM DatosClientes WHERE idCliente = ?";
