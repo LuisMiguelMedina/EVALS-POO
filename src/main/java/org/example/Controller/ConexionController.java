@@ -34,7 +34,6 @@ public class ConexionController {
         }
         return rs;
     }
-
     // Método para actualizar la base de datos (INSERT, UPDATE, DELETE)
     public int actualizar(String query) {
         Connection conn = getConnection();
