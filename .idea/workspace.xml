@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="54e43d1d-756c-43a4-9b67-871b07e77ff0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/ConexionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/ConexionController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,19 +63,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="EVALS-POO" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="EVALS-POO" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.MainTest" />
@@ -93,6 +79,7 @@
       <updated>1681808592189</updated>
       <workItem from="1681808594916" duration="2285000" />
       <workItem from="1681829852223" duration="219000" />
+      <workItem from="1681835870430" duration="663000" />
     </task>
     <servers />
   </component>
