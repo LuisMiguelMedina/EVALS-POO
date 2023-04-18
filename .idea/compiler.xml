@@ -9,8 +9,5 @@
         <module name="EVAL3-MVC" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="EVAL3-MVC" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
