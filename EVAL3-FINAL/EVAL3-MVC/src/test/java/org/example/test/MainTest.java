@@ -16,7 +16,7 @@ public class MainTest {
     CuentaController cuentaController = new CuentaController();
     TransaccionController transaccionController = new TransaccionController();
     Cliente cliente1 = new Cliente("C999","Juan Perez", "+1-555-123-4567","jperez@mail.com");
-    Cliente cliente2 = new Cliente("C998","Perez Juan Alfonso Carrera Tambolo", "+1-555-123-4567","fma@gmail.com");
+    Cliente cliente2 = new Cliente("C998","Perez Juan Alfonso", "+1-555-123-4567","fma@gmail.com");
     Cuenta cuenta1 = new Cuenta(cliente1.getIdCliente(), "CC01", 500.0, "99901");
     Cuenta cuenta2 = new Cuenta("C998", "CC01", 500.0,"99801");
     @Test
@@ -26,15 +26,14 @@ public class MainTest {
     @Test
     public void testCrearCliente() throws SQLException {
         clienteController.crearCliente(cliente1);
-        clienteController.crearCliente(cliente2);
+        clienteController.eliminarCliente(cliente1);
     }
-
     @Test
     public void testCrearCuenta() throws SQLException {
         clienteController.crearCliente(cliente1);
-        clienteController.crearCliente(cliente2);
         cuentaController.crearCuenta(cuenta1);
-        cuentaController.crearCuenta(cuenta2);
+        cuentaController.eliminarCuenta(cuenta1);
+        clienteController.eliminarCliente(cliente1);
     }
     @Test
     public void testHacerRetiro() throws SQLException {
@@ -42,6 +41,8 @@ public class MainTest {
         cuentaController.crearCuenta(cuenta1);
         Retiro retiro1 = new Retiro(50.00);
         transaccionController.hacerRetiro(retiro1,cuenta1);
+        cuentaController.eliminarCuenta(cuenta1);
+        clienteController.eliminarCliente(cliente1);
     }
     @Test
     public void testHacerDeposito() throws SQLException {
@@ -51,5 +52,9 @@ public class MainTest {
         cuentaController.crearCuenta(cuenta2);
         Deposito deposito1 = new Deposito(200.0, cuenta1.getClabe());
         transaccionController.hacerDeposito(deposito1,cuenta2);
+        cuentaController.eliminarCuenta(cuenta1);
+        cuentaController.eliminarCuenta(cuenta2);
+        clienteController.eliminarCliente(cliente1);
+        clienteController.eliminarCliente(cliente2);
     }
 }
