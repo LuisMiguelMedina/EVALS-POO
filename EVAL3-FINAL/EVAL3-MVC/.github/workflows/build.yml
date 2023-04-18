@@ -1,0 +1,26 @@
+name: Build y Test
+
+on:
+  push:
+    branches: [ main, EVAL3-MVC ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código fuente
+        uses: actions/checkout@v2
+
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: '17'
+
+      - name: Compilar y ejecutar pruebas
+        env:
+          PASS_SECRET: ${{ secrets.PASS_SECRET }}
+          USER_SECRET: ${{ secrets.USER_SECRET }}
+        run: |
+          # Compilar el proyecto y ejecutar pruebas JUnit
+          mvn clean test -DPASS_SECRET=$PASS_SECRET -DUSER_SECRET=$USER_SECRET
