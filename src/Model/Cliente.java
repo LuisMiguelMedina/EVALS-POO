@@ -1,5 +1,4 @@
-package src.Model;
-
+package Model;
 public class Cliente {
     private final String idCliente;
     private final String nombre;
@@ -17,7 +16,6 @@ public class Cliente {
     public String getNombre() {
         return nombre;
     }
-
     public String getTelefono() {
         return telefono;
     }

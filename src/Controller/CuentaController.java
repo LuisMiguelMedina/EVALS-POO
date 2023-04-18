@@ -1,9 +1,9 @@
-package src.Controller;
+package Controller;
 
-import src.DAO.Conexion;
-import src.Model.Cuenta;
-import src.Model.Transaccion;
-import src.Service.Query;
+import DAO.Conexion;
+import Model.Cuenta;
+import Model.Transaccion;
+import Service.Query;
 import java.io.IOException;
 import java.util.List;
 public class CuentaController {

@@ -1,12 +1,11 @@
-package src.Model;
+package Model;
 
-import src.DAO.Conexion;
-import src.Service.Query;
+import DAO.Conexion;
+import Service.Query;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 public class Cuenta {
     private final String idCliente;
     private final String idCuenta;

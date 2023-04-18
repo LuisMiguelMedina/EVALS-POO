@@ -1,11 +1,9 @@
-package src.Service;
+package Service;
 
-import src.DAO.CRUDRegistros;
-import src.DAO.Conexion;
-
+import DAO.CRUDRegistros;
+import DAO.Conexion;
 import java.io.IOException;
 import java.util.List;
-
 public class Query {
     private CRUDRegistros crudRegistros;
     private final Conexion conexion;

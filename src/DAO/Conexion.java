@@ -1,6 +1,6 @@
-package src.DAO;
+package DAO;
 public class Conexion {
-    private static final String RUTA_ARCHIVOS = "EVAL1/src/CSVArchivos/";
+    private static final String RUTA_ARCHIVOS = "src/CSVArchivos/";
     private static final String RUTA_CLIENTES = "DatosClientes.csv";
     private static final String RUTA_CUENTAS = "DatosCuentas.csv";
     private static final String RUTA_TRANSACCIONES = "DatosTransferencias.csv";

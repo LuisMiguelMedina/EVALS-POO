@@ -1,11 +1,10 @@
-package src.Model;
+package Model;
 
-import src.Controller.CuentaController;
-import src.DAO.Conexion;
-import src.Service.Query;
+import Controller.CuentaController;
+import DAO.Conexion;
+import Service.Query;
 import java.io.IOException;
 import java.util.List;
-
 public class Deposito extends Transaccion {
     private final String clabeDestino;
     public Deposito(double monto, String clabeDestino) {
@@ -21,7 +20,7 @@ public class Deposito extends Transaccion {
         //Retiro
         retiro.hacerRetiro(cuenta);
         // Deposito
-        String[] depositoRegistro = {deposito.getClabeDestino(), "+" + deposito.getMonto(), Transaccion.Fecha.getCurrentTimestamp()};
+        String[] depositoRegistro = {deposito.getClabeDestino(), "+" + monto, Transaccion.Fecha.getCurrentTimestamp()};
         query.escribirRegistroTransaccion(depositoRegistro);
         registrarDeposito(deposito);
     }
@@ -29,14 +28,14 @@ public class Deposito extends Transaccion {
         CuentaController cuentaController = new CuentaController();
         Query query = new Query(new Conexion());
         List<String[]> registrosCuentas = query.obtenerRegistrosCuentas();
-        double fondoTotal = cuentaController.validarSaldoCuenta(deposito.getClabeDestino()) + deposito.getMonto();
+        double fondoTotal = cuentaController.validarSaldoCuenta(deposito.getClabeDestino()) + monto;
         System.out.println(fondoTotal);
         String fondoTotalString = Double.toString(fondoTotal);
         int i = 0;
         for (String[] registro : registrosCuentas) {
             if (registro[3].equals(deposito.getClabeDestino())) {
                 query.actualizarCeldaSaldo(i,2,fondoTotalString);
-                System.out.println("La cuenta " + deposito.getClabeDestino() + " recibió +" + deposito.getMonto() + "$ el " + Transaccion.Fecha.getCurrentTimestamp());
+                System.out.println("La cuenta " + deposito.getClabeDestino() + " recibió +" + monto + "$ el " + Transaccion.Fecha.getCurrentTimestamp());
                 break;
             }
             i++;

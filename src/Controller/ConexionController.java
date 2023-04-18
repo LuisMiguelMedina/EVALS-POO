@@ -1,6 +1,6 @@
-package src.Controller;
+package Controller;
 
-import src.DAO.Conexion;
+import DAO.Conexion;
 import java.io.File;
 public class ConexionController {
     public void validarConexion() {

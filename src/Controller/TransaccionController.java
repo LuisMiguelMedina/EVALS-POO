@@ -1,14 +1,12 @@
-package src.Controller;
+package Controller;
 
-import src.DAO.Conexion;
-import src.Model.Cuenta;
-import src.Model.Deposito;
-import src.Model.Retiro;
-import src.Service.Query;
+import DAO.Conexion;
+import Model.Cuenta;
+import Model.Deposito;
+import Model.Retiro;
+import Service.Query;
 import java.io.IOException;
 import java.util.List;
-import java.util.Random;
-
 public class TransaccionController {
     //Deposito
     public boolean validarDatosDeposito(Deposito deposito) throws IOException {

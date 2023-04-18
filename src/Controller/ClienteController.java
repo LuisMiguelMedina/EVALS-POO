@@ -1,8 +1,8 @@
-package src.Controller;
+package Controller;
 
-import src.DAO.Conexion;
-import src.Model.Cliente;
-import src.Service.Query;
+import DAO.Conexion;
+import Model.Cliente;
+import Service.Query;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
