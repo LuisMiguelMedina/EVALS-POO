@@ -14,17 +14,12 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 public class VentanaTransacciones extends JFrame implements ActionListener{
-    private final JTextField txtMonto;
-    private final JTextField txtMontoRetiro;
-    private final JTextField txtClabe;
-    private final JTextField txtClabeRetiro;
-    private final JTextField txtClabeDestino;
-    private final JButton btnDepositar;
-    private final JButton btnRetiro;
+    private final JTextField txtMonto,txtClabe,txtClabeDestino,txtClabeRetiro,txtMontoRetiro;
+    private final JButton btnDepositar,btnRetiro;
     public VentanaTransacciones() {
-        super("Bank Application");
-        setSize(0, 0);
+        super("Bank Application - Transacciones");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setSize(800, 600);
 
         // Window listener
         addWindowListener(new WindowAdapter() {
@@ -36,51 +31,85 @@ public class VentanaTransacciones extends JFrame implements ActionListener{
 
         // Panel para deposito
         JPanel panelDeposito = new JPanel(new GridBagLayout());
-        panelDeposito.setBorder(BorderFactory.createTitledBorder("Datos para deposito"));
-
+        panelDeposito.setBorder(BorderFactory.createTitledBorder("Depósito"));
         GridBagConstraints c = new GridBagConstraints();
         c.insets = new Insets(5, 5, 5, 5);
 
-        panelDeposito.add(new JLabel("Escribe tu cuenta CLABE:"), c);
-        txtClabe = new JTextField(15);
+        JLabel lblClabe = new JLabel("Cuenta CLABE:");
+        lblClabe.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        panelDeposito.add(lblClabe, c);
+        txtClabe = new JTextField(20);
+        txtClabe.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        c.gridy = 1;
         panelDeposito.add(txtClabe, c);
 
-        panelDeposito.add(new JLabel("Escribe la cuenta CLABE destino:"), c);
-        txtClabeDestino = new JTextField(15);
+        JLabel lblClabeDestino = new JLabel("Cuenta CLABE destino:");
+        lblClabeDestino.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        c.gridy = 2;
+        panelDeposito.add(lblClabeDestino, c);
+        txtClabeDestino = new JTextField(20);
+        txtClabeDestino.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        c.gridy = 3;
         panelDeposito.add(txtClabeDestino, c);
 
-        panelDeposito.add(new JLabel("Monto a depositar:"), c);
-        txtMonto = new JTextField(15);
+        JLabel lblMonto = new JLabel("Monto a depositar:");
+        lblMonto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        c.gridy = 4;
+        panelDeposito.add(lblMonto, c);
+        txtMonto = new JTextField(20);
+        txtMonto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        c.gridy = 5;
         panelDeposito.add(txtMonto, c);
 
         btnDepositar = new JButton("Depositar");
         btnDepositar.addActionListener(this);
+        c.gridy = 6;
         panelDeposito.add(btnDepositar, c);
 
         // Panel para Retiro
         JPanel panelRetiro = new JPanel(new GridBagLayout());
-        panelRetiro.setBorder(BorderFactory.createTitledBorder("Datos para retiro"));
-
+        panelRetiro.setBorder(BorderFactory.createTitledBorder("Retiro"));
         GridBagConstraints d = new GridBagConstraints();
         d.insets = new Insets(5, 5, 5, 5);
 
-        panelRetiro.add(new JLabel("Escribe tu cuenta CLABE:"), d);
-        txtClabeRetiro = new JTextField(15);
+        JLabel lblClabeRetiro = new JLabel("Cuenta CLABE:");
+        lblClabeRetiro.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        panelRetiro.add(lblClabeRetiro, d);
+        txtClabeRetiro = new JTextField(20);
+        txtClabeRetiro.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        d.gridy = 1;
         panelRetiro.add(txtClabeRetiro, d);
 
-        panelRetiro.add(new JLabel("Monto a retirar:"), d);
-        txtMontoRetiro = new JTextField(15);
+        JLabel lblMontoRetiro = new JLabel("Monto a retirar:");
+        lblMontoRetiro.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        d.gridy = 2;
+        panelRetiro.add(lblMontoRetiro, d);
+        txtMontoRetiro = new JTextField(20);
+        txtMontoRetiro.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        d.gridy = 3;
         panelRetiro.add(txtMontoRetiro, d);
 
         btnRetiro = new JButton("Retirar");
         btnRetiro.addActionListener(this);
-        panelRetiro.add(btnRetiro, d);
+        d.gridy = 4;
+        panelRetiro.add(btnRetiro,d);
 
         // Agregamos los paneles al contenedor principal
-        Container contentPane = getContentPane();
-        contentPane.setLayout(new GridLayout(2, 2));
-        contentPane.add(panelDeposito);
-        contentPane.add(panelRetiro);
+        JPanel contentPane = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        contentPane.add(panelDeposito, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.insets = new Insets(20, 10, 10, 10);
+        contentPane.add(panelRetiro, gbc);
+
+        setContentPane(contentPane);
+
         pack();
         setLocationRelativeTo(null);
     }

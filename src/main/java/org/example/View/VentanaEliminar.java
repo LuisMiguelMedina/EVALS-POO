@@ -13,15 +13,10 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 public class VentanaEliminar extends JFrame implements ActionListener {
-    private final JTextField txtIdCliente;
-    private final JTextField txtCLABE;
-    private final JButton btnEliminarCliente;
-    private final JButton btnEliminarCuenta;
+    private final JTextField txtIdCliente,txtCLABE;
+    private final JButton btnEliminarCliente,btnEliminarCuenta;
     public VentanaEliminar() {
         super("Bank Application");
-        setSize(0, 0);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
         // Window listener
         addWindowListener(new WindowAdapter() {
             @Override
@@ -65,7 +60,6 @@ public class VentanaEliminar extends JFrame implements ActionListener {
         contentPane.setLayout(new GridLayout(2, 1));
         contentPane.add(panelCliente);
         contentPane.add(panelCuenta);
-
         pack();
         setLocationRelativeTo(null);
     }

@@ -2,8 +2,8 @@ package org.example.DAO;
 import java.sql.*;
 public class Conexion {
     // Cadena de conexión a la base de datos
-    static String user = "";
-    static String password = "";
+    static String user = System.getenv("USER_SECRET");
+    static String password = System.getenv("PASS_SECRET");
     private static final String ConnectionString = "jdbc:sqlserver://luismifmat.database.windows.net:1433;"
             + "database=LuisMFmat;"
             + "user="+user

@@ -11,16 +11,14 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 public class VentanaPrincipal extends JFrame implements ActionListener {
-    private final JButton btnCrear;
-    private final JButton btnBuscar;
-    private final JButton btnEliminar;
-    private final JButton btnTransigir;
+    private final JButton btnCrear,btnBuscar;
+    private final JButton btnEliminar,btnTransigir;
     public VentanaPrincipal() {
         super("Bank Application");
         setLocationRelativeTo(null);
-        setSize(600, 300);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
+        setSize(600, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
 
         JPanel panelBotones = new JPanel();
         panelBotones.setLayout(new FlowLayout());
@@ -46,10 +44,9 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         Container contentPane = getContentPane();
         contentPane.setLayout(new GridLayout(1, 1));
         contentPane.add(panelBotones);
-        contentPane.setSize(400,200);
     }
     public void ventanaCrear(JFrame nuevaVentana) {
-        nuevaVentana.setSize(600, 400);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setVisible(false);
         nuevaVentana.setVisible(true);
     }

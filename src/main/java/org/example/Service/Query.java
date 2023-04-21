@@ -127,6 +127,20 @@ public class Query {
         }
         return cuenta;
     }
+    public ResultSet obtenerCuentaPorClabeArray(String cuentaClabe) throws SQLException {
+        String sql = "SELECT * FROM DatosCuentas WHERE clabe = ?";
+        Connection conn = conexionController.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, cuentaClabe);
+        return pstmt.executeQuery();
+    }
+    public ResultSet obtenerCuentasPorIDArray(String idCliente) throws SQLException {
+        String sql = "SELECT * FROM DatosCuentas WHERE idCliente = ?";
+        Connection conn = conexionController.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, idCliente);
+        return pstmt.executeQuery();
+    }
     public ResultSet obtenerClientePorIdClienteArray(String idCliente) throws SQLException {
         String sql = "SELECT * FROM DatosClientes WHERE idCliente = ?";
         Connection conn = conexionController.getConnection();
@@ -199,7 +213,7 @@ public class Query {
         String ultimoId = obtenerUltimoIdCuenta();
         String numero = ultimoId.replaceAll("[^0-9]", "");
         int nuevoNumero = Integer.parseInt(numero) + 1;
-        return String.format("C%02d", nuevoNumero);
+        return String.format("CC%02d", nuevoNumero);
     }
     public String generarCLABE(String idCliente, String idCuenta) throws SQLException {
         String numeroCliente = idCliente.replaceAll("[^0-9]", "");

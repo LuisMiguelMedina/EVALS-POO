@@ -19,17 +19,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class VentanaBuscar extends JFrame implements ActionListener {
-    private final JTextField txtIdCliente;
-    private final JTextField txtnombre;
-    private final JTextField txtcorreo;
-    private final JTextField txtCLABE;
-    private final JButton btnBuscarCliente;
-    private final JButton btnBuscarClienteD;
-    private final JButton btnBuscarCuenta;
+    private final JTextField txtIdCliente, txtnombre,txtcorreo,txtCLABE, txtIdClienteCuenta;
+    private final JButton btnBuscarCliente, btnBuscarClienteD,btnBuscarCuenta,btnBuscarCuentas;
     public VentanaBuscar() {
-        super("Bank Application");
+        super("Bank Application - Buscar");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(0, 0);
+        setSize(600, 400);
 
         // Window listener
         addWindowListener(new WindowAdapter() {
@@ -95,17 +90,34 @@ public class VentanaBuscar extends JFrame implements ActionListener {
 
         panelBuscarCuenta.add(panelBuscarCuentaInputs, BorderLayout.CENTER);
 
+        // Panel para buscar cuentas
+        JPanel panelBuscarCuentas = new JPanel(new BorderLayout());
+        panelBuscarCuentas.setBorder(BorderFactory.createTitledBorder("Buscar cuentas por ID"));
+
+        JPanel panelBuscarCuentasInputs = new JPanel(new FlowLayout());
+        JLabel lblCuentasPorId = new JLabel("IDCliente:");
+        txtIdClienteCuenta = new JTextField(15);
+        panelBuscarCuentasInputs.add(lblCuentasPorId);
+        panelBuscarCuentasInputs.add(txtIdClienteCuenta);
+
+        btnBuscarCuentas = new JButton("Buscar cuentas");
+        btnBuscarCuentas.addActionListener(this);
+        panelBuscarCuentasInputs.add(btnBuscarCuentas);
+
+        panelBuscarCuentas.add(panelBuscarCuentasInputs, BorderLayout.CENTER);
+
         // Agregamos los paneles al contenedor principal
-        Container contentPane = getContentPane();
-        contentPane.setLayout(new GridLayout(2, 2, 5, 5));
+        JPanel contentPane = new JPanel(new GridLayout(2, 2, 5, 5));
+        contentPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         contentPane.add(panelBuscarID);
         contentPane.add(panelBuscarDatos);
-        contentPane.add(new JPanel());
         contentPane.add(panelBuscarCuenta);
+        contentPane.add(panelBuscarCuentas);
 
+        setContentPane(contentPane);
         setLocationRelativeTo(null);
     }
-    public void mostrarMensaje(ResultSet rs) throws SQLException {
+        public void mostrarMensaje(ResultSet rs) throws SQLException {
         JFrame frame = new JFrame();
         frame.setTitle("Mensaje");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -143,13 +155,19 @@ public class VentanaBuscar extends JFrame implements ActionListener {
             }
         } else if (e.getSource() == btnBuscarCuenta) {
             try {
-                System.out.println(query.obtenerCuentaPorClabe(txtCLABE.getText()));
+                mostrarMensaje(query.obtenerCuentaPorClabeArray(txtCLABE.getText()));
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }
         } else if (e.getSource() == btnBuscarClienteD){
             try {
                 mostrarMensaje(query.obtenerClientePorPorNombreYCorreoArray(txtnombre.getText(),txtcorreo.getText()));
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        } else if (e.getSource() == btnBuscarCuentas) {
+            try {
+                mostrarMensaje(query.obtenerCuentasPorIDArray(txtIdClienteCuenta.getText()));
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }

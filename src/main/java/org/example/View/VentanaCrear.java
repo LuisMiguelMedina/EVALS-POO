@@ -15,18 +15,12 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 public class VentanaCrear extends JFrame implements ActionListener {
-    private final JButton btnCrearCuenta;
-    private final JTextField txtIdClienteCuenta;
-    private final JTextField txtSaldo;
-    private final JButton btnCrearCliente;
-    private final JTextField txtNombre;
-    private final JTextField txtTelefono;
-    private final JTextField txtCorreo;
+    private final JButton btnCrearCuenta,btnCrearCliente;
+    private final JTextField txtNombre,txtTelefono,txtIdClienteCuenta,txtSaldo,txtCorreo;
     public VentanaCrear() {
         super("Bank Application");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(0, 0);
-
+        setSize(800, 600);
         // Window listener
         addWindowListener(new WindowAdapter() {
             @Override
@@ -34,66 +28,78 @@ public class VentanaCrear extends JFrame implements ActionListener {
                 new VentanaPrincipal().setVisible(true);
             }
         });
-
         // Panel para datos del cliente
         JPanel panelCliente = new JPanel(new GridBagLayout());
         panelCliente.setBorder(BorderFactory.createTitledBorder("Datos del cliente"));
         GridBagConstraints c = new GridBagConstraints();
         c.insets = new Insets(5, 5, 5, 5);
 
-        c.gridx = 0; c.gridy = 0;
+        c.gridx = 0;
+        c.gridy = 0;
         panelCliente.add(new JLabel("Nombre:"), c);
         txtNombre = new JTextField(15);
-        c.gridx = 1; c.gridy = 0;
+        c.gridx = 1;
+        c.gridy = 0;
         panelCliente.add(txtNombre, c);
 
-        c.gridx = 0; c.gridy = 1;
+        c.gridx = 0;
+        c.gridy = 1;
         panelCliente.add(new JLabel("Teléfono:"), c);
         txtTelefono = new JTextField(15);
-        c.gridx = 1; c.gridy = 1;
+        c.gridx = 1;
+        c.gridy = 1;
         panelCliente.add(txtTelefono, c);
 
-        c.gridx = 0; c.gridy = 2;
+        c.gridx = 0;
+        c.gridy = 2;
         panelCliente.add(new JLabel("Correo electrónico:"), c);
         txtCorreo = new JTextField(15);
-        c.gridx = 1; c.gridy = 2;
+        c.gridx = 1;
+        c.gridy = 2;
         panelCliente.add(txtCorreo, c);
 
         btnCrearCliente = new JButton("Crear Cliente");
         btnCrearCliente.addActionListener(this);
-        c.gridx = 1; c.gridy = 3;
+        c.gridx = 1;
+        c.gridy = 3;
         panelCliente.add(btnCrearCliente, c);
 
         // Panel para datos de la cuenta
         JPanel panelCuenta = new JPanel(new GridBagLayout());
         panelCuenta.setBorder(BorderFactory.createTitledBorder("Datos de la cuenta"));
-        panelCuenta.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         GridBagConstraints d = new GridBagConstraints();
         d.insets = new Insets(5, 5, 5, 5);
 
-        d.gridx = 0; d.gridy = 0;
+        d.gridx = 0;
+        d.gridy = 0;
         panelCuenta.add(new JLabel("ID del cliente:"), d);
         txtIdClienteCuenta = new JTextField(15);
-        d.gridx = 1; d.gridy = 0;
+        d.gridx = 1;
+        d.gridy = 0;
         panelCuenta.add(txtIdClienteCuenta, d);
 
-        d.gridx = 0; d.gridy = 1;
+        d.gridx = 0;
+        d.gridy = 1;
         panelCuenta.add(new JLabel("Saldo:"), d);
         txtSaldo = new JTextField(15);
-        d.gridx = 1; d.gridy = 1;
+        d.gridx = 1;
+        d.gridy = 1;
         panelCuenta.add(txtSaldo, d);
 
         btnCrearCuenta = new JButton("Crear Cuenta");
         btnCrearCuenta.addActionListener(this);
-        d.gridx = 1; d.gridy = 2;
+        d.gridx = 1;
+        d.gridy = 2;
         panelCuenta.add(btnCrearCuenta, d);
 
         // Agregamos los paneles al contenedor principal
-        Container contentPane = getContentPane();
-        contentPane.setLayout(new GridLayout(2, 1));
+        JPanel contentPane = new JPanel(new GridLayout(2, 1, 0, 0));
+        contentPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         contentPane.add(panelCliente);
         contentPane.add(panelCuenta);
+        setContentPane(contentPane);
 
+        pack();
         setLocationRelativeTo(null);
     }
     @Override

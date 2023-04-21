@@ -8,6 +8,7 @@ import org.example.Model.Cliente;
 import org.example.Model.Cuenta;
 import org.example.Model.Deposito;
 import org.example.Model.Retiro;
+import org.example.Service.Query;
 import org.junit.jupiter.api.Test;
 import java.sql.SQLException;
 public class MainTest {
@@ -56,5 +57,16 @@ public class MainTest {
         cuentaController.eliminarCuenta(cuenta2);
         clienteController.eliminarCliente(cliente1.getIdCliente());
         clienteController.eliminarCliente(cliente2.getIdCliente());
+    }
+    @Test
+    public void testCrearCuentaView() throws SQLException {
+        Query query = new Query(new ConexionController());
+        clienteController.crearCliente(cliente1);
+        double saldo = Double.parseDouble(String.valueOf(500));
+        String idCuenta = query.generarNuevoIdCuenta();
+        Cuenta cuenta = new Cuenta(cliente1.getIdCliente(), idCuenta,saldo, query.generarCLABE(cliente1.getIdCliente(),idCuenta));
+        cuentaController.crearCuenta(cuenta);
+        cuentaController.eliminarCuenta(cuenta);
+        clienteController.eliminarCliente(cliente1.getIdCliente());
     }
 }

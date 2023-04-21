@@ -5,32 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54e43d1d-756c-43a4-9b67-871b07e77ff0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaBuscar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaCrear.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaEliminar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaTransacciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/ClienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/CuentaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/CuentaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/Conexion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Model/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Model/Cuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Model/Cuenta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Service/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Service/Query.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/View/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaBuscar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaBuscar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaCrear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaCrear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaEliminar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaEliminar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaTransacciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaTransacciones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test/MainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Controller/ClienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Controller/ClienteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Controller/ConexionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Controller/ConexionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/DAO/Conexion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/DAO/Conexion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Model/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Model/Cliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Model/Cuenta.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Model/Cuenta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Model/Deposito.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Model/Deposito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Model/Retiro.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Model/Retiro.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/example/Service/Query.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Service/Query.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/View/Vista.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/test/MainTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/test/MainTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,8 +87,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainTest.testCrearCuentaView" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="EVAL3-MVC" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.test" />
+      <option name="MAIN_CLASS_NAME" value="org.example.test.MainTest" />
+      <option name="METHOD_NAME" value="testCrearCuentaView" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MainTest.testCrearCuentaView" />
         <item itemvalue="JUnit.MainTest" />
       </list>
     </recent_temporary>
@@ -123,7 +126,7 @@
       <workItem from="1681998025378" duration="30000" />
       <workItem from="1682022386004" duration="919000" />
       <workItem from="1682026302022" duration="13370000" />
-      <workItem from="1682100113708" duration="574000" />
+      <workItem from="1682100113708" duration="6259000" />
     </task>
     <servers />
   </component>
