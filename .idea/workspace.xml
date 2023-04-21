@@ -5,25 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54e43d1d-756c-43a4-9b67-871b07e77ff0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/ClienteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/ConexionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/CuentaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/TransaccionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/Conexion.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Model/Cliente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Model/Cuenta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Model/Deposito.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Model/Retiro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Model/Transaccion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Service/Query.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaBuscar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaCrear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaEliminar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaPrincipal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaTransacciones.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +61,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.MainTest">
     <configuration name="MainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="EVAL3-MVC" />
       <extension name="coverage">
@@ -134,6 +118,7 @@
       <workItem from="1682026302022" duration="13370000" />
       <workItem from="1682100113708" duration="6259000" />
       <workItem from="1682107364590" duration="141000" />
+      <workItem from="1682107779533" duration="454000" />
     </task>
     <servers />
   </component>
