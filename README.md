@@ -16,5 +16,5 @@ We're about to go on vacation, take advantage of it to finish the project. This 
 - You might be excited that now you'll be able to use a database instead of having to struggle with everything using files. Well, I just wanted to remind you that now you also have to build the View.
 
 ## Class Diagram:
-![EVAL1-DiagramClass](EVAL1/Documentation/Eval1.png)
-[Minor changes and its done]
+![EVAL3-DiagramClass](Documentation/EVAL3.png)
+[Minor changes and its done(the diagram)]
