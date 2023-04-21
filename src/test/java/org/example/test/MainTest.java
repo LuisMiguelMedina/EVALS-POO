@@ -26,14 +26,14 @@ public class MainTest {
     @Test
     public void testCrearCliente() throws SQLException {
         clienteController.crearCliente(cliente1);
-        clienteController.eliminarCliente(cliente1);
+        clienteController.eliminarCliente(cliente1.getIdCliente());
     }
     @Test
     public void testCrearCuenta() throws SQLException {
         clienteController.crearCliente(cliente1);
         cuentaController.crearCuenta(cuenta1);
         cuentaController.eliminarCuenta(cuenta1);
-        clienteController.eliminarCliente(cliente1);
+        clienteController.eliminarCliente(cliente1.getIdCliente());
     }
     @Test
     public void testHacerRetiro() throws SQLException {
@@ -42,7 +42,7 @@ public class MainTest {
         Retiro retiro1 = new Retiro(50.00);
         transaccionController.hacerRetiro(retiro1,cuenta1);
         cuentaController.eliminarCuenta(cuenta1);
-        clienteController.eliminarCliente(cliente1);
+        clienteController.eliminarCliente(cliente1.getIdCliente());
     }
     @Test
     public void testHacerDeposito() throws SQLException {
@@ -54,7 +54,7 @@ public class MainTest {
         transaccionController.hacerDeposito(deposito1,cuenta2);
         cuentaController.eliminarCuenta(cuenta1);
         cuentaController.eliminarCuenta(cuenta2);
-        clienteController.eliminarCliente(cliente1);
-        clienteController.eliminarCliente(cliente2);
+        clienteController.eliminarCliente(cliente1.getIdCliente());
+        clienteController.eliminarCliente(cliente2.getIdCliente());
     }
 }

@@ -65,13 +65,4 @@ public class CuentaController {
             throw new RuntimeException(e);
         }
     }
-    public void crearEstadoDeCuenta(Cuenta cuenta) throws SQLException {
-        System.out.println("Estado de cuenta de la cuenta " + cuenta.getIdCuenta());
-        System.out.println("Saldo actual: " + validarSaldoCuenta(cuenta.getClabe()));
-        System.out.println("Transacciones realizadas:");
-        if (cuenta.estadoDeCuenta()!=null){
-            System.out.println(cuenta.estadoDeCuenta());
-        } else
-            System.out.println("No hay operaciones realizadas");
-    }
 }

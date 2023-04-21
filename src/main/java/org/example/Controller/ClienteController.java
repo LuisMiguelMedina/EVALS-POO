@@ -31,7 +31,6 @@ public class ClienteController {
                 cliente.getTelefono(),
                 cliente.getCorreo()
         };
-
         if (validarDatosCliente(cliente)) {
             query.escribirRegistroCliente(datosCliente);
             System.out.println("Cliente creado exitosamente.");
@@ -39,13 +38,13 @@ public class ClienteController {
             System.out.println("Datos de cliente no válidos. No se ha creado el cliente.");
         }
     }
-    public void eliminarCliente(Cliente cliente) throws SQLException {
+    public void eliminarCliente(String idCliente) throws SQLException {
         Query query = new Query(new ConexionController());
         List<String[]> registrosClientes = query.obtenerRegistrosClientes();
         int i = 0;
         for (String[] registro : registrosClientes) {
-            if (registro[0].equals(cliente.getIdCliente())) {
-                query.eliminarRegistroCliente(cliente.getIdCliente());
+            if (registro[0].equals(idCliente)) {
+                query.eliminarRegistroCliente(idCliente);
                 System.out.println("Cliente eliminado exitosamente.");
                 return;
             }

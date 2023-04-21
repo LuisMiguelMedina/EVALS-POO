@@ -11,7 +11,6 @@ public class Cuenta {
     private final String idCuenta;
     private final double saldo;
     private final String clabe;
-
     public Cuenta(String idCliente, String idCuenta, double saldo, String clabe) {
         this.idCliente = idCliente;
         this.idCuenta = idCuenta;

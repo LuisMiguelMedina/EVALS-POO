@@ -1,6 +1,9 @@
 package org.example.Service;
 
 import org.example.Controller.ConexionController;
+import org.example.Model.Cliente;
+import org.example.Model.Cuenta;
+
 import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
@@ -110,6 +113,36 @@ public class Query {
         }
         return saldo;
     }
+    public Cuenta obtenerCuentaPorClabe(String cuentaClabe) throws SQLException {
+        Cuenta cuenta = null;
+        String sql = "SELECT * FROM DatosCuentas WHERE clabe = ?";
+        try (Connection conn = conexionController.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, cuentaClabe);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    cuenta = new Cuenta(rs.getString("idCliente"), rs.getString("idCuenta"),rs.getDouble("saldo"),rs.getString("clabe"));
+                }
+            }
+        }
+        return cuenta;
+    }
+    public ResultSet obtenerClientePorIdClienteArray(String idCliente) throws SQLException {
+        String sql = "SELECT * FROM DatosClientes WHERE idCliente = ?";
+        Connection conn = conexionController.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, idCliente);
+        return pstmt.executeQuery();
+    }
+    public ResultSet obtenerClientePorPorNombreYCorreoArray(String nombre, String correo) throws SQLException {
+        Cliente cliente = null;
+        String sql = "SELECT * FROM DatosClientes WHERE nombre = ? AND correo = ?";
+        Connection conn = conexionController.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, nombre);
+        pstmt.setString(2, correo);
+        return pstmt.executeQuery();
+    }
     // Crear Registros
     public void escribirRegistroCliente(String[] registro) throws SQLException {
         String query = "INSERT INTO DatosClientes (idCliente,nombre,telefono,correo) " +
@@ -146,7 +179,43 @@ public class Query {
             statement.executeUpdate();
         }
     }
-
+    public String generarNuevoIdCliente() throws SQLException {
+        String ultimoId = obtenerUltimoIdCliente();
+        String numero = ultimoId.replaceAll("[^0-9]", "");
+        int nuevoNumero = Integer.parseInt(numero) + 1;
+        return String.format("C%03d", nuevoNumero);
+    }
+    public String obtenerUltimoIdCliente() throws SQLException {
+        String query = "SELECT TOP 1 idCliente FROM DatosClientes ORDER BY idCliente DESC";
+        try (Connection conn = conexionController.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query);ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("idCliente");
+                }
+            }
+        return "C001";
+    }
+    public String generarNuevoIdCuenta() throws SQLException {
+        String ultimoId = obtenerUltimoIdCuenta();
+        String numero = ultimoId.replaceAll("[^0-9]", "");
+        int nuevoNumero = Integer.parseInt(numero) + 1;
+        return String.format("C%02d", nuevoNumero);
+    }
+    public String generarCLABE(String idCliente, String idCuenta) throws SQLException {
+        String numeroCliente = idCliente.replaceAll("[^0-9]", "");
+        String numeroCuenta = idCuenta.replaceAll("[^0-9]", "");
+        return numeroCliente + numeroCuenta;
+    }
+    public String obtenerUltimoIdCuenta() throws SQLException {
+        String query = "SELECT TOP 1 idCuenta FROM DatosCuentas ORDER BY idCuenta DESC";
+        try (Connection conn = conexionController.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query);ResultSet rs = pstmt.executeQuery()) {
+            if (rs.next()) {
+                return rs.getString("idCuenta");
+            }
+        }
+        return "C01";
+    }
     // Update
     public void actualizarCeldaSaldo(String clabe, String saldo) {
         try {
@@ -159,7 +228,6 @@ public class Query {
             e.printStackTrace();
         }
     }
-
     // Delete
     public void eliminarRegistroCliente(String idCliente) throws SQLException {
         String query = "DELETE FROM DatosClientes WHERE idCliente = ?";

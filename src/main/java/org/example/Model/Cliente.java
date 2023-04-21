@@ -22,4 +22,8 @@ public class Cliente {
     public String getCorreo() {
         return correo;
     }
+    @Override
+    public String toString() {
+        return String.format("ID: %s%nNombre: %s%nTeléfono: %s%nCorreo: %s", idCliente, nombre, telefono, correo);
+    }
 }

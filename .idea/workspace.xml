@@ -5,12 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54e43d1d-756c-43a4-9b67-871b07e77ff0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaBuscar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaCrear.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaEliminar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaTransacciones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/CuentaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/CuentaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DAO/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DAO/Conexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Model/Cuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Model/Cuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Service/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Service/Query.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/View/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/View/VentanaPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/test/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/test/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Controller/ClienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Controller/ClienteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Controller/ConexionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Controller/ConexionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/DAO/Conexion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/DAO/Conexion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Model/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Model/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Model/Cuenta.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Model/Cuenta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Model/Deposito.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Model/Deposito.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Model/Retiro.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Model/Retiro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Service/Query.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Service/Query.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/View/Vista.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/test/MainTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/test/MainTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,6 +64,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2OapXjiOwdMfALBLcTsNM5jjWOl" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,11 +75,13 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -80,10 +118,20 @@
       <workItem from="1681808594916" duration="2285000" />
       <workItem from="1681829852223" duration="219000" />
       <workItem from="1681835870430" duration="663000" />
+      <workItem from="1681839880354" duration="1126000" />
+      <workItem from="1681854018547" duration="11075000" />
+      <workItem from="1681998025378" duration="30000" />
+      <workItem from="1682022386004" duration="919000" />
+      <workItem from="1682026302022" duration="13370000" />
+      <workItem from="1682100113708" duration="574000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
