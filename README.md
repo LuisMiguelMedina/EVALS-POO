@@ -1,20 +1,18 @@
-# EVAL-3
+# EVALS
 
-# Client:
-We're about to go on vacation, take advantage of it to finish the project. This time, you won't be using CSV files anymore. We're now going to migrate to a real DB and verify that all you need, according to your design, is to modify the query classes, CRUDRegistros, and Connection.
-
-## Requirements:
- |Non-Functional|Functional|
- |--------------|----------|
- |NF01: Migrate to DB (Finally) |F01: Make the necessary changes to the query, CRUDRegistros, and Connection classes |
- 
- ## Limitations:
+# User guide:
+## Testing
+To activate testing in any environment that supports Maven, you should enter the command 
+```cmd
+mvn test
+```
+With this code, the JUNIT dependencies will be downloaded and testing can be used
+# Documentation:
+## Client
+Make a bank system. The system must have only one type of account, there will be only 2 transactions, and you must use information in text files.
+## Limitations
  - Cannot use frameworks [java vanilla]
- - Cannot modify Models and Controllers [It could happen in case of fixing something but it shouldn't]
- 
- ## Notes:
-- You might be excited that now you'll be able to use a database instead of having to struggle with everything using files. Well, I just wanted to remind you that now you also have to build the View.
-
-## Class Diagram:
-![EVAL3-DiagramClass](Documentation/EVAL3.png)
-[Minor changes and its done(the diagram)]
+## Notes
+- CLASS DIAGRAM ALWAYS FIRST!
+## Class Diagram
+![EVAL3-DiagramClass](Documents/EVAL3.png)
